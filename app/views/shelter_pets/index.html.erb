@@ -1,0 +1,37 @@
+<h1>Shelter Pets</h1>
+
+  <nav class="navigation">
+    <%= link_to 'Create Pet', "/shelters/#{@shelter_id}/pets/new" %>
+    <%= link_to "See All Pets", "/pets" %>
+    <%= link_to "See All Shelters", "/shelters" %>
+  </nav>
+
+  <body class="display">
+    <% @pets.each do |pet| %>
+
+    <section class="block">
+
+
+    <strong>Pet Id: </strong>  <%= pet.id %><br>
+
+
+
+    <strong>Pet Image: </strong> <%= pet.image %><br>
+
+
+    <strong>Pet Name: </strong><%= link_to "#{pet.name}", "pets/#{pet.id}" %><br>
+
+
+    <strong>Pet Approximate Age: </strong>  <%= pet.approximate_age %><br>
+
+
+
+    <strong>Pet Gender: </strong>  <%= pet.sex %><br>
+
+
+
+    <%= link_to "Update Pet #{pet.id}", "/pets/#{pet.id}/edit" %>
+    <%= link_to "Delete Pet #{pet.id}", "/pets/#{pet.id}", method: :delete %>
+    <% end %>
+    </section>
+  </body>

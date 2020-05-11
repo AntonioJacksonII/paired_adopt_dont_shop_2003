@@ -1,0 +1,24 @@
+<h1>Shelter Names</h1>
+
+<nav class="navigation">
+  <%= link_to "New Shelter", "/shelters/new", class: "link" %>
+  <%= link_to "See All Pets", "/pets", class: "link" %>
+
+</nav>
+
+<body class="display">
+
+  <% @shelters.each do |shelter| %>
+
+  <section class="block">
+
+
+    <strong>Shelter Name: </strong> <strong><%= link_to shelter.name, "shelters/#{shelter.id}" %></strong>
+    <%= link_to "Update Shelter #{shelter.id}", "/shelters/#{shelter.id}/edit"%>
+    <%= link_to "Delete Shelter #{shelter.id}", "/shelters/#{shelter.id}", method: :delete %>
+
+    </section>
+
+  <% end %>
+
+</body>

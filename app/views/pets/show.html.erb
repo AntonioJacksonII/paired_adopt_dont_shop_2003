@@ -1,0 +1,20 @@
+
+<h2> Pet Information <h2>
+
+<nav class="navigation">
+<%= link_to "See All Pets", "/pets" %>
+<%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
+<%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
+<%= link_to "See All Shelters", "/shelters" %>
+</nav>
+
+<body class="display">
+  <div class="show">
+    <p>Pet Image: <%= @pet.image %></p>
+    <p>Pet Name: <%= @pet.name %></p>
+    <p>Pet Description: <%= @pet.description %></p>
+    <p>Pet Approximate Age: <%= @pet.approximate_age %></p>
+    <p>Pet Sex: <%= @pet.sex %></p>
+    <p>Pet Adoption Status: <%= @pet.adoption_status %></p>
+  </div>
+</body>
