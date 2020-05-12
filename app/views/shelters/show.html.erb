@@ -34,6 +34,8 @@
 
     <strong>Review Picture: </strong><%= review.picture %><br>
 
+    <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit" %>
+
     <% end %>
 
 

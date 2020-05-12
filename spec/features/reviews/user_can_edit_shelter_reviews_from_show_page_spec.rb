@@ -15,7 +15,7 @@ require "rails_helper"
 
     visit "/shelters/#{shelter.id}"
     click_link("Edit Review")
-    expect(current_path).to eql("shelters/#{shelter.id}/reviews/edit")
+    expect(current_path).to eql("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
     expect(page).to have_content("Terrible Place")
     expect(page).to have_content(1)
     expect(page).to have_content("The animals sleep in cages")
@@ -23,7 +23,7 @@ require "rails_helper"
     fill_in :rating, with: 5
     fill_in :content, with: "Great experience friendly staff"
 
-    click_on 'Submit Review'
+    click_on 'Edit Review'
     expect(current_path).to eql("/shelters/#{shelter.id}")
     expect(page).to have_content("Great Shelter")
     expect(page).to have_content(5)

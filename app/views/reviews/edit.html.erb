@@ -1,0 +1,16 @@
+<h1>Edit Review</h1>
+
+<body class="display">
+  <%= form_tag("/shelters/#{params[:shelter_id]}", method: :post) do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title, :input_html => { :value => "#{@review.title}" } %>
+  <%= label_tag :rating %>
+  <%= text_field_tag :rating, :input_html => { :value => "#{@review.rating}" } %>
+  <%= label_tag :content %>
+  <%= text_field_tag :content, :input_html => { :value => "#{@review.content}" } %>
+  <%= label_tag :picture %>
+  <%= text_field_tag :picture, :input_html => { :value => "#{@review.content}" } %>
+
+  <%= submit_tag 'Edit Review' %>
+  <% end %>
+</body>
