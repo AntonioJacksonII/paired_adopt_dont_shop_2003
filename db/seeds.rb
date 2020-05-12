@@ -26,3 +26,8 @@ pet_1 = Pet.create(image: "Curly Url",
                     shelter_id: shelter_1.id,
                     description: "A Curly Pet",
                     adoption_status: "adoptable")
+
+review_1 = Review.create(title: "Terrible Place",
+                         rating: 1,
+                         content: "The animals sleep in cages",
+                         shelter_id: shelter_1.id)

@@ -16,9 +16,7 @@ require "rails_helper"
     visit "/shelters/#{shelter.id}"
     click_link("Edit Review")
     expect(current_path).to eql("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
-    expect(page).to have_content("Terrible Place")
-    expect(page).to have_content(1)
-    expect(page).to have_content("The animals sleep in cages")
+  
     fill_in :title, with: "Great Shelter"
     fill_in :rating, with: 5
     fill_in :content, with: "Great experience friendly staff"
