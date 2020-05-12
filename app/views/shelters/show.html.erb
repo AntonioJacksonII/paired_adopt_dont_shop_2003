@@ -7,6 +7,7 @@
   <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete, class: "link" %>
   <%= link_to "See All Pets", "/pets", class: "link" %>
   <%= link_to "View Shelters Pets", "/shelters/#{@shelter.id}/pets", class: "link" %>
+  <%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new", class: "link" %>
 </nav>
 
 <body class="display">
@@ -21,4 +22,19 @@
 
   <strong>Shelter Zip: </strong><%= @shelter.zip %>
   <div>
+
+
+    <% @shelter.reviews.each do |review| %>
+
+    <strong>Review Title: </strong><%= review.title %><br>
+
+    <strong>Review Rating: </strong><%= review.rating %><br>
+
+    <strong>Review Description: </strong><%= review.content %><br>
+
+    <strong>Review Picture: </strong><%= review.picture %><br>
+
+    <% end %>
+
+
 </body>
