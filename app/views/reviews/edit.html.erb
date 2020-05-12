@@ -1,5 +1,9 @@
 <h1>Edit Review</h1>
 
+<nav class="navigation">
+  <%= link_to "Favorite Pets: 0", "/favorites", class: "link" %>
+</nav>
+
 <body class="display">
   <%= form_tag("/shelters/#{params[:shelter_id]}", method: :post) do %>
   <%= label_tag :title %>
