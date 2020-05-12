@@ -34,7 +34,10 @@
 
     <strong>Review Picture: </strong><%= review.picture %><br>
 
+
+    <%= link_to "Delete Review #{review.id}", "/reviews/#{review.id}", method: :delete %>
     <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit" %>
+
 
     <% end %>
 

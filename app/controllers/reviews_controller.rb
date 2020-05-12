@@ -20,6 +20,12 @@ end
     @review = Review.find(params[:review_id])
   end
 
+  def destroy
+    review = Review.find(params[:id])
+    Review.destroy(params[:id])
+    redirect_to "/shelters/#{review.shelter_id}"
+  end
+
 
 
   private
