@@ -21,6 +21,22 @@ RSpec.describe "Shelter Show Page", type: :feature do
   expect(page).to have_content("Great Shelter")
   expect(page).to have_content(5)
   expect(page).to have_content("Great experience friendly staff")
+end
+
+  it "Can display error message if review not created" do
+    shelter = Shelter.create(name: "Kitty Shelter",
+                             address: "12888 Kitty Drive",
+                             city: "Kitty Vale",
+                             state: "Kitty Twon",
+                             zip: 73429)
+    visit "shelters/#{shelter.id}"
+    click_link('New Review')
+    expect(current_path).to eql("/shelters/#{shelter.id}/reviews/new")
+    fill_in :title, with: "Horrible"
+    fill_in :rating, with: 1
+    click_on 'Submit Review'
+    expect(current_path).to eql("/shelters/#{shelter.id}/reviews/new")
+    expect(page).to have_content("Please Fill In Title, Rating, and Content")
 
   end
 end
