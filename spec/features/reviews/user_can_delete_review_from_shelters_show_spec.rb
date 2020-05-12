@@ -23,13 +23,16 @@ describe "Shelter Show Page", type: :feature do
      click_link("Delete Review #{review_1.id}")
      expect(current_path).to eq("/shelters/#{shelter.id}")
 
-     expect(page).to_not have_content("Great Shelter")
-     expect(page).to_not have_content(5)
-     expect(page).to_not have_content("Great experience friendly staff")
-
+   #   within("#review-#{review_1.id}") do
+   #   expect(page).to_not have_content("Great Shelter")
+   #   expect(page).to_not have_content(5)
+   #   expect(page).to_not have_content("Great experience friendly staff")
+   # end
+     within("#review-#{review_2.id}") do
      expect(page).to have_content("Worst Shelter")
      expect(page).to have_content(1)
      expect(page).to have_content("Inhumaine Experience")
+   end
   end
 end
 
