@@ -4,11 +4,20 @@ class ReviewsController < ApplicationController
   end
 
   def create
-  
-    shelter = Shelter.find(params[:shelter_id])
-    review = shelter.reviews.create!(review_params)
 
-    redirect_to "/shelters/#{shelter.id}"
+    shelter = Shelter.find(params[:shelter_id])
+    review = shelter.reviews.new(review_params)
+    if review.save
+      redirect_to "/shelters/#{shelter.id}"
+    else
+      flash[:notice] = "Please Fill In Title, Rating, and Content"
+      redirect_to "/shelters/#{shelter.id}/reviews/new"
+
+  end
+end
+
+  def edit
+    @review = Review.find(params[:review_id])
   end
 
 
