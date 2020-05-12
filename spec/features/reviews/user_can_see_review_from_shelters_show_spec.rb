@@ -1,6 +1,6 @@
-'rails_helper'
+require 'rails_helper'
 
-RSpec.describe do "Shelter Show Page", type: :feature do
+RSpec.describe "Shelter Show Page", type: :feature do
   it "Can display reviews from shelters show page" do
 
     shelter = Shelter.create(name: "Kitty Shelter",
@@ -10,12 +10,15 @@ RSpec.describe do "Shelter Show Page", type: :feature do
                              zip: 73429)
     review_1 = Review.create(title: "Great Shelter",
                              rating: 5,
-                             content: "Awesome experience")
+                             content: "Awesome experience",
+                             shelter_id: shelter.id)
 
     review_2 = Review.create(title: "Worst Shelter",
                              rating: 1,
                              content: "Inhumaine Experience",
-                             picture: "Shelter Url")
+                             picture: "Shelter Url",
+                             shelter_id: shelter.id)
+
 
     visit "shelters/#{shelter.id}"
     expect(page).to have_content(review_1.title)
@@ -25,9 +28,9 @@ RSpec.describe do "Shelter Show Page", type: :feature do
     expect(page).to have_content(review_2.rating)
     expect(page).to have_content(review_2.content)
     expect(page).to have_content(review_2.picture)
-  
   end
 end
+
 
 
 # As a visitor,
