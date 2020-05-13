@@ -6,15 +6,19 @@
 <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
 <%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
 <%= link_to "See All Shelters", "/shelters" %>
+<%= link_to "Favorite Pets: #{favorites.total_count}", "/favorites", class: "link" %>
 </nav>
 
 <body class="display">
   <div class="show">
+    <section id="pet-<%= @pet.id %>">
     <p>Pet Image: <%= @pet.image %></p>
     <p>Pet Name: <%= @pet.name %></p>
     <p>Pet Description: <%= @pet.description %></p>
     <p>Pet Approximate Age: <%= @pet.approximate_age %></p>
     <p>Pet Sex: <%= @pet.sex %></p>
     <p>Pet Adoption Status: <%= @pet.adoption_status %></p>
+    <p><%= button_to "Favorite This Pet", "/favorites/#{@pet.id}", method: :patch %></p>
+    </section>
   </div>
 </body>

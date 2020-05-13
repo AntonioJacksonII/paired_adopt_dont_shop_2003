@@ -1,6 +1,13 @@
 <h1>Edit Review</h1>
 
+
+<nav class="navigation">
+  <%= link_to "Favorite Pets: 0", "/favorites", class: "link" %>
+</nav>
+
+
 <%= flash[:notice] %>
+
 <body class="display">
   <%= form_tag "/reviews/#{@review.id}", method: :patch do %>
   <%= label_tag :title %>
