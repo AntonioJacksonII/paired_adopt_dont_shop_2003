@@ -1,17 +1,13 @@
 class PetsController < ApplicationController
 
   def index
-
     @shelter_id = params[:shelter_id]
-
-
     @pets = Pet.all
-
   end
 
   def show
-  @pet = Pet.find(params[:pet_id])
-
+    @pet = Pet.find(params[:pet_id])
+    @favorites = Favorite.new(session[:favorites])
   end
 
   def new
