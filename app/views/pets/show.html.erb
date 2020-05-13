@@ -6,7 +6,7 @@
 <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
 <%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
 <%= link_to "See All Shelters", "/shelters" %>
-<%= link_to "Favorite Pets: #{@favorites.total_count}", "/favorites", class: "link" %>
+<%= link_to "Favorite Pets: #{favorites.total_count}", "/favorites", class: "link" %>
 </nav>
 
 <body class="display">
