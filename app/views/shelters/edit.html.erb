@@ -1,12 +1,5 @@
 <h1>Update Shelter</h1>
 
-<nav class="navigation">
-  <%= link_to "See All Pets", "/pets" %>
-  <%= link_to "See All Shelters", "/shelters" %>
-  <%= link_to "Favorite Pets: #{favorites.total_count}", "/favorites", class: "link" %>
-</nav>
-
-
 <body class="display">
 <%= form_tag("/shelters/#{@shelter.id}", method: :patch) do %>
 <%= label_tag :name %>
