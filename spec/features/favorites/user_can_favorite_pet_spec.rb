@@ -43,5 +43,6 @@ describe "Pet Show Page", type: :feature do
       end
 
       expect(page).to have_content("You have added Raulgh to your favorites!")
+
     end
   end
