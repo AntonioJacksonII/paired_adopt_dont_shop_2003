@@ -26,4 +26,11 @@ class FavoritesController < ApplicationController
     redirect_back(fallback_location:"/favorites")
 
   end
+
+  def destroy_all
+    session[:favorites].clear
+    flash[:notice] = "You Have No More Favorite Pets"
+    redirect_back(fallback_location:"/favorites")
+
+  end
 end
