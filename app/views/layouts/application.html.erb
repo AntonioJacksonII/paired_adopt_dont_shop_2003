@@ -14,6 +14,13 @@
       <p><%= message %></p>
     </section>
     <% end %>
+
+    <nav class="navigation">
+      <%= link_to "See All Shelters", "/shelters" %>
+      <%= link_to "See All Pets", "/pets" %>
+      <%= link_to "Favorite Pets: #{favorites.total_count}", "/favorites", class: "link" %>
+    </nav>
+
     <%= yield %>
   </body>
 </html>

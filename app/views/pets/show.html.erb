@@ -2,11 +2,8 @@
 <h2> Pet Information </h2>
 
 <nav class="navigation">
-<%= link_to "See All Pets", "/pets" %>
-<%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
-<%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
-<%= link_to "See All Shelters", "/shelters" %>
-<%= link_to "Favorite Pets: #{favorites.total_count}", "/favorites", class: "link" %>
+  <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
+  <%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
 </nav>
 
 <body class="display">
