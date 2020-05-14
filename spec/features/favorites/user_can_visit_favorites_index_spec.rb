@@ -38,4 +38,26 @@ describe 'Favorites Index Page', type: :feature do
     click_link("Spot")
     expect(current_path).to eq("/pets/#{pet2.id}")
   end
+
+  it "tells a user when they have no favorited pets" do
+    visit '/favorites'
+    expect(page).to have_content("You have no favorite pets.")
+    shelter = Shelter.create({name: "Happy Shelter",
+                             address: "12980 Grover Drive",
+                             city: "Doggy Vale",
+                             state: "Colorado",
+                             zip: 74578})
+
+    pet = Pet.create({
+      image: "Happy Url",
+      name: "Raulgh",
+      approximate_age: 27,
+      sex: "Male",
+      shelter_id: shelter.id
+      })
+    visit "/pets/#{pet.id}"
+    click_button("Favorite This Pet")
+    click_link("Favorite Pets: 1")
+    expect(page).to_not have_content("You have no favorite pets.")
+  end
 end

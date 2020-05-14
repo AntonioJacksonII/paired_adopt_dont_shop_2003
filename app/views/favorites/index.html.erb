@@ -7,12 +7,16 @@
   </nav>
 
   <body class="display">
-    <% favorites.contents.each do |favorite| %>
-    <section class="block" id="favorite-<%= favorite["id"] %>">>
-       <%="#{favorite["image"]}" %> <br>
-      <strong>Favorite Pet Name: </strong> <%= link_to "#{favorite["name"]}", "/pets/#{favorite["id"]}" %> <br>
-      <br>
-      <br>
-    </section>
+    <% if favorites.total_count == 0 %>
+      <strong>You have no favorite pets.</strong><br>
+    <% else %>
+      <% favorites.contents.each do |favorite| %>
+      <section class="block" id="favorite-<%= favorite["id"] %>">>
+        <%="#{favorite["image"]}" %> <br>
+        <strong>Favorite Pet Name: </strong> <%= link_to "#{favorite["name"]}", "/pets/#{favorite["id"]}" %> <br>
+        <br>
+        <br>
+      </section>
+      <% end %>
     <% end %>
   </body>
