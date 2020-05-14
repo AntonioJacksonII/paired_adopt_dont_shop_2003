@@ -1506,6 +1506,8 @@
         null,
         1,
         2,
+        2,
+        2,
         null,
         null
       ],
@@ -1513,7 +1515,8 @@
         1,
         1,
         1,
-        null,
+        1,
+        1,
         null
       ],
       "/Users/antoniojackson/turing/2mod/projects/paired_adopt_dont_shop_2003/spec/models/review_spec.rb": [
@@ -1623,6 +1626,37 @@
         null,
         null
       ],
+      "/Users/antoniojackson/turing/2mod/projects/paired_adopt_dont_shop_2003/app/controllers/favorites_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null,
+        2,
+        2,
+        null,
+        2,
+        null,
+        null,
+        null
+      ],
       "/Users/antoniojackson/turing/2mod/projects/paired_adopt_dont_shop_2003/app/controllers/pets_controller.rb": [
         1,
         null,
@@ -1671,37 +1705,6 @@
         1,
         4,
         4,
-        null,
-        null
-      ],
-      "/Users/antoniojackson/turing/2mod/projects/paired_adopt_dont_shop_2003/app/controllers/favorites_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        9,
-        9,
-        9,
-        9,
-        9,
-        9,
-        null,
-        null,
-        1,
-        2,
-        2,
-        2,
-        null,
-        null,
-        2,
-        2,
-        null,
-        2,
-        null,
         null,
         null
       ],
@@ -1773,6 +1776,6 @@
         null
       ]
     },
-    "timestamp": 1589485815
+    "timestamp": 1589486199
   }
 }
