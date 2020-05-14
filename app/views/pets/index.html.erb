@@ -1,12 +1,6 @@
 
 <h1>Shelter Pets</h1>
 
-  <nav class="navigation">
-    <%= link_to "See All Pets", "/pets", class: "link" %>
-    <%= link_to "See All Shelters", "/shelters", class: "link" %>
-    <%= link_to "Favorite Pets: #{favorites.total_count}", "/favorites", class: "link" %>
-  </nav>
-
   <body class="display">
 
   <% @pets.each do |pet| %>
