@@ -6,6 +6,10 @@
     <%= link_to "Favorite Pets: #{favorites.total_count}", "/favorites", class: "link" %>
   </nav>
 
+    <% if favorites.total_count > 0 %>
+    <%= link_to "Remove All Favorited Pets", "/favorites", method: :delete %>
+    <% end %>
+    
   <body class="display">
     <% if favorites.total_count == 0 %>
       <strong>You have no favorite pets.</strong><br>
