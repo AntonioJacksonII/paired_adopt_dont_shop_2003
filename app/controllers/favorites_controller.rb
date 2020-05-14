@@ -11,14 +11,14 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-
-    favorite_pet = favorites.contents.find do |pet_entry|
+    current_favorites = session[:favorites]
+    favorite_pet = current_favorites.find do |pet_entry|
       pet_entry["id"] == params[:pet_id].to_i
     end
 
     flash[:notice] = "You have removed #{favorite_pet["name"]} from your favorites!"
-    favorites.contents.delete(favorite_pet)
-    binding.pry
+    session[:favorites].delete(favorite_pet)
+
     redirect_to "/pets/#{params[:pet_id]}"
 
   end
