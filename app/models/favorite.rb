@@ -12,4 +12,6 @@ class Favorite
   def add_pet(pet)
     @contents << pet
   end
+
+  
 end
