@@ -1,5 +1,5 @@
 
-<h2> Pet Information <h2>
+<h2> Pet Information </h2>
 
 <nav class="navigation">
 <%= link_to "See All Pets", "/pets" %>
@@ -18,7 +18,16 @@
     <p>Pet Approximate Age: <%= @pet.approximate_age %></p>
     <p>Pet Sex: <%= @pet.sex %></p>
     <p>Pet Adoption Status: <%= @pet.adoption_status %></p>
+
+
+
+    <% if favorites.contents.none?{ |content| content["id"] == @pet.id} %>
     <p><%= button_to "Favorite This Pet", "/favorites/#{@pet.id}", method: :patch %></p>
+    <% else %>
+    <p><%= button_to "Unfavorite This Pet", "/favorites/#{@pet.id}", method: :delete %></p>
+
+  <% end %>
+
     </section>
   </div>
 </body>
