@@ -8,7 +8,7 @@
   <%= link_to "See All Pets", "/pets", class: "link" %>
   <%= link_to "View Shelters Pets", "/shelters/#{@shelter.id}/pets", class: "link" %>
   <%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new", class: "link" %>
-  <%= link_to "Favorite Pets: 0", "/favorites", class: "link" %>
+  <%= link_to "Favorite Pets: #{favorites.total_count}", "/favorites", class: "link" %>
 </nav>
 
 <body class="display">

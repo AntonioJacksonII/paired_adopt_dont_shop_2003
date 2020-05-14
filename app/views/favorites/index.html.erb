@@ -1,0 +1,22 @@
+<h1>Favorite Pets</h1>
+
+  <nav class="navigation">
+    <%= link_to "See All Pets", "/pets", class: "link" %>
+    <%= link_to "See All Shelters", "/shelters", class: "link" %>
+    <%= link_to "Favorite Pets: 0", "/favorites", class: "link" %>
+  </nav>
+
+  <body class="display">
+    <% if favorites.total_count == 0 %>
+      <strong>You have no favorite pets.</strong><br>
+    <% else %>
+      <% favorites.contents.each do |favorite| %>
+      <section class="block" id="favorite-<%= favorite["id"] %>">>
+        <%="#{favorite["image"]}" %> <br>
+        <strong>Favorite Pet Name: </strong> <%= link_to "#{favorite["name"]}", "/pets/#{favorite["id"]}" %> <br>
+        <br>
+        <br>
+      </section>
+      <% end %>
+    <% end %>
+  </body>
