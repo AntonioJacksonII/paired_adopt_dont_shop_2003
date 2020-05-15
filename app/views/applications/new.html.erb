@@ -7,8 +7,9 @@
 <h2>Select the Pets To Apply For</h2>
 
 <% favorites.contents.each do |favorite| %>
-<%= check_box_tag(:favorite["id"]) %>
-<%= label_tag(:favorite["id"], "#{favorite["name"]}") %>
+
+<%= check_box_tag("#{favorite["id"]}") %>
+<%= label_tag("#{favorite["id"]}", "#{favorite["name"]}") %>
 <% end %>
 
 <h2>Application</h2>
