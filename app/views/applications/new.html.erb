@@ -1,1 +1,7 @@
 <h1>Apply for Your Favorite Pets</h1>
+
+<ul>
+<% favorites.contents.each do |favorite| %>
+<li> <%= favorite["name"] %></li>
+<% end %>
+</ul>
