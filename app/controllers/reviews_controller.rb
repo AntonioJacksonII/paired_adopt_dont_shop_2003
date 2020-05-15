@@ -7,7 +7,12 @@ class ReviewsController < ApplicationController
 
     shelter = Shelter.find(params[:shelter_id])
     review = shelter.reviews.new(review_params)
-    if review.save
+
+    if review.rating < 1 || review.rating > 5
+  
+      flash[:notice] = "Please select a rating between 1 and 5"
+      redirect_to "/shelters/#{shelter.id}/reviews/new"
+    elsif review.save
       redirect_to "/shelters/#{shelter.id}"
     else
       flash[:notice] = "Please Fill In Title, Rating, and Content"
