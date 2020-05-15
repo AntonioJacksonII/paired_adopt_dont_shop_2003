@@ -1575,6 +1575,16 @@
         2,
         2,
         null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null,
         null
       ],
       "/Users/antoniojackson/turing/2mod/projects/paired_adopt_dont_shop_2003/app/models/application.rb": [
@@ -1936,6 +1946,6 @@
         null
       ]
     },
-    "timestamp": 1589583365
+    "timestamp": 1589583660
   }
 }
