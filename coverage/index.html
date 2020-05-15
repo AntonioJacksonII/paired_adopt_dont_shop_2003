@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-05-15T17:01:00-06:00">2020-05-15T17:01:00-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-05-15T17:05:01-06:00">2020-05-15T17:05:01-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>65</b> files in total.
-    <b>851</b> relevant lines. 
-    <span class="green"><b>851</b> lines covered</span> and
+    <b>852</b> relevant lines. 
+    <span class="green"><b>852</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -133,9 +133,9 @@
       <tr>
         <td class="strong"><a href="#a39e318a8aa964d0597f8d63cc62de2349e4a61d" class="src_link" title="app/models/application.rb">app/models/application.rb</a></td>
         <td class="green strong">100.0 %</td>
+        <td>5</td>
         <td>4</td>
-        <td>3</td>
-        <td>3</td>
+        <td>4</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -2139,8 +2139,8 @@
     <h3>app/models/application.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2166,7 +2166,13 @@
           <code class="ruby">  has_many :pets, through: :application_pets</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates_presence_of :name, :address, :city, :state, :zip, :phone, :description</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby">end</code>
