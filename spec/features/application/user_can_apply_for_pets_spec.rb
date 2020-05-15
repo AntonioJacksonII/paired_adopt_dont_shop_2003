@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Application Form', type: :feature do
-  xit 'can link to application from Favorites page' do
+  it 'can link to application from Favorites page' do
     shelter = Shelter.create({name: "Happy Shelter",
                              address: "12980 Grover Drive",
                              city: "Doggy Vale",
@@ -21,7 +21,7 @@ describe 'Application Form', type: :feature do
     visit "/pets/#{pet2.id}"
     click_button("Favorite This Pet")
     visit "/favorites"
-    click_link "Adopt Your Favorites"
+    click_link "Adopt Your Favorite Pets"
     expect(current_path).to eq("/applications/new")
   end
 end
