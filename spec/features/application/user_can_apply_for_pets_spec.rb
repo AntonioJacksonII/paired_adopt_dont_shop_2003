@@ -40,6 +40,8 @@ describe 'Application Form', type: :feature do
    click_button("Favorite This Pet")
    visit "/applications/new"
 
+   expect(page).to have_content("Garfield")
+   expect(page).to have_content("Spot")
    check "#{pet1.id}"
    check "#{pet2.id}"
  end
