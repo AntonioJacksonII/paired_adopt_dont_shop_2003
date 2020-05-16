@@ -42,10 +42,6 @@ end
 
     elsif review.update(review_params)
         redirect_to "/shelters/#{review.shelter.id}"
-
-    else
-      flash[:notice] = "Error"
-      redirect_to "/shelters/#{review.shelter.id}/reviews/#{review.id}/edit"
     end
   end
 
