@@ -48,6 +48,27 @@ require "rails_helper"
      expect(page).to have_content("Please Fill In Title, Rating, and Content")
 
    end
+   it "Will display error message if review rating is not between 1 and 5" do
+     shelter = Shelter.create(name: "Kitty Shelter",
+                              address: "12888 Kitty Drive",
+                              city: "Kitty Vale",
+                              state: "Kitty Twon",
+                              zip: 73429)
+     review = Review.create(title: "Terrible Place",
+                              rating: 1,
+                              content: "The animals sleep in cages",
+                              shelter_id: shelter.id)
+
+      visit "shelters/#{shelter.id}"
+      click_link('Edit Review')
+      expect(current_path).to eql("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
+      fill_in :title, with: "Horrible"
+      fill_in :rating, with: 100
+      click_on 'Edit Review'
+
+      expect(current_path).to eql("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
+      expect(page).to have_content("Please select a rating between 1 and 5")
+   end
 
 end
 
