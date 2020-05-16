@@ -50,15 +50,15 @@ RSpec.describe "Pet Applications Index Page", type: :feature do
     click_link("View All Applications")
     expect(current_path).to eql("/pets/#{pet1.id}/applications")
     within ".applicant-#{application1.id}" do
-      expect(page).to have_content(application_1.name)
+      expect(page).to have_content(application1.name)
     end
     within ".applicant-#{application2.id}" do
-      expect(page).to have_content(application_2.name)
+      expect(page).to have_content(application2.name)
     end
     expect(page).not_to have_css("applicant-#{application3.id}")
-    expect(page).not_to have_content("#{applicant3.name}")
-    click_link(applicant1.name)
-    expect(current_path).to eql("/application/#{application1.id}")
+    expect(page).not_to have_content("#{application3.name}")
+    click_link(application1.name)
+    expect(current_path).to eql("/applications/#{application1.id}")
   end
 end
 

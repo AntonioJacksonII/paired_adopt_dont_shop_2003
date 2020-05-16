@@ -1,0 +1,8 @@
+<h1>Applications For: <%=@pet.name%></h1>
+
+
+<% @pet.applications.each do |application| %>
+  <section class = "applicant-<%= application.id %>">
+  <%= link_to "#{application.name}", "/applications/#{application.id}" %>
+  <section>
+  <% end %>
