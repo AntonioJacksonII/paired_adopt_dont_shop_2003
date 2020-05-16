@@ -12,7 +12,7 @@ class ApplicationsController < ApplicationController
         session[:favorites].delete(app_fav)
       end
     end
-    flash[:notice] = "Your application was submitted!"
+    flash[:notice] = "Your application was submitted for the pets you selected!"
     redirect_to "/favorites"
   end
 

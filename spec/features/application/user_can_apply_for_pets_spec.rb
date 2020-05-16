@@ -73,7 +73,7 @@ describe 'Application Form', type: :feature do
     click_button("Submit Application")
 
     expect(current_path).to eq("/favorites")
-    expect(page).to have_content("Your application was submitted!")
+    expect(page).to have_content("Your application was submitted for the pets you selected!")
     expect(page).to_not have_content("Garfield")
     expect(page).to have_content("Spot")
   end
@@ -106,7 +106,7 @@ describe 'Application Form', type: :feature do
     click_button("Submit Application")
 
     expect(current_path).to eq("/favorites")
-    expect(page).to have_content("Your application was submitted!")
+    expect(page).to have_content("Your application was submitted for the pets you selected!")
     expect(page).to have_content("You have no favorite pets.")
     expect(page).to_not have_content("Garfield")
     expect(page).to_not have_content("Spot")
