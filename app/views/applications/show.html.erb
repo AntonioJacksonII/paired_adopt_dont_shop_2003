@@ -1,0 +1,15 @@
+<h1>Application for: <%=@application.name %> </h1>
+
+
+<strong>Applicant's Name: <%=@application.name%></strong>
+<strong>Applicant's Address: <%=@application.address%></strong>
+<strong>Applicant's City: <%=@application.city%></strong>
+<strong>Applicant's State: <%=@application.state%></strong>
+<strong>Applicant's Zip: <%=@application.zip%></strong>
+<strong>Applicant's Phone Number: <%=@application.phone%></strong>
+<strong>Applicant's Name: <%=@application.description%></strong>
+
+
+  <% @application.pets.map do |pet| %>
+  <%=link_to "#{pet.name}", "/pets/#{pet.id}"%>
+  <% end %>
