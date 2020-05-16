@@ -46,7 +46,7 @@ describe 'Application Form', type: :feature do
    check "#{pet2.id}"
  end
 
-  xit "lists favorite pets to select at the top of the page" do
+  it "displays a message when the application is submitted" do
     shelter = Shelter.create({name: "Happy Shelter",
                           address: "12980 Grover Drive",
                           city: "Doggy Vale",
@@ -61,7 +61,17 @@ describe 'Application Form', type: :feature do
     click_button("Favorite This Pet")
     visit "/applications/new"
 
-    check_box "#{pet1.name}"
-    check_box "#{pet2.name}"
+    check "#{pet1.id}"
+
+    fill_in :name, with: "Applicant A"
+    fill_in :address, with: "123 A St"
+    fill_in :city, with: "Fake"
+    fill_in :state, with: "CO"
+    fill_in :zip, with: "80202"
+    fill_in :phone, with: "123-456-7891"
+    fill_in :description, with: "Clean home"
+    click_button("Submit Application")
+
+    expect(current_path).to eq("/favorites")
   end
 end
