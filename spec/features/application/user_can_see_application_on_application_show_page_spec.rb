@@ -21,12 +21,12 @@ RSpec.describe "Application Show Page", type: :feature do
       })
       application.pets << pet1
       application.pets << pet2
-      visit "/application/#{application.id}"
+      visit "/applications/#{application.id}"
       expect(page).to have_content(application.name)
       expect(page).to have_content(application.address)
       expect(page).to have_content(application.city)
       expect(page).to have_content(application.state)
-      expect(page).to have_content(applicaton.zip)
+      expect(page).to have_content(application.zip)
       expect(page).to have_content(application.phone)
       expect(page).to have_content(application.description)
       expect(page).to have_content(pet1.name)
