@@ -13,5 +13,5 @@ class Favorite
     @contents << pet
   end
 
-  
+
 end
