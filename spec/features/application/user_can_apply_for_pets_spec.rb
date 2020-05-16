@@ -46,7 +46,7 @@ describe 'Application Form', type: :feature do
    check "#{pet2.id}"
  end
 
-  it "displays a message when the application is submitted" do
+  it "successfully submits an application and displays a message" do
     shelter = Shelter.create({name: "Happy Shelter",
                           address: "12980 Grover Drive",
                           city: "Doggy Vale",
@@ -73,5 +73,8 @@ describe 'Application Form', type: :feature do
     click_button("Submit Application")
 
     expect(current_path).to eq("/favorites")
+    expect(page).to have_content("Your application was submitted!")
+    expect(page).to_not have_content("Garfield")
+    expect(page).to have_content("Spot")
   end
 end
