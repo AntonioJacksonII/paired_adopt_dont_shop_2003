@@ -23,8 +23,9 @@ RSpec.describe "Application Show Page", type: :feature do
     application1.pets << pet1
     application1.pets << pet2
     visit "/applications/#{application1.id}"
-    within "pet-#{pet1.id}"
+    within ".pet-#{pet1.id}" do
     click_link("Approve Pet")
+    end
     expect(current_path).to eql("/pets/#{pet1.id}")
     expect(page).to have_content("On hold for Bob")
     expect(page).to have_content("pending")
