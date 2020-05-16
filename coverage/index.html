@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-05-15T20:05:56-06:00">2020-05-15T20:05:56-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-05-15T20:09:46-06:00">2020-05-15T20:09:46-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.07
+         2.14
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>34.1</td>
+        <td>36.1</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>14</td>
         <td>14</td>
         <td>0</td>
-        <td>1.1</td>
+        <td>2.2</td>
       </tr>
       
       <tr>
@@ -77,7 +77,7 @@
         <td>21</td>
         <td>21</td>
         <td>0</td>
-        <td>5.9</td>
+        <td>6.4</td>
       </tr>
       
       <tr>
@@ -87,7 +87,7 @@
         <td>26</td>
         <td>26</td>
         <td>0</td>
-        <td>5.1</td>
+        <td>5.2</td>
       </tr>
       
       <tr>
@@ -167,7 +167,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>47.1</td>
+        <td>49.4</td>
       </tr>
       
       <tr>
@@ -760,8 +760,8 @@
           <code class="ruby">  def favorites</code>
         </li>
       
-        <li class="covered" data-hits="233" data-linenumber="6">
-          <span class="hits">233</span>
+        <li class="covered" data-hits="246" data-linenumber="6">
+          <span class="hits">246</span>
           
           <code class="ruby">    @favorites ||= Favorite.new(session[:favorites])</code>
         </li>
@@ -784,8 +784,8 @@
           <code class="ruby">  def pets</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="10">
+          <span class="hits">2</span>
           
           <code class="ruby">    Pet.all</code>
         </li>
@@ -857,38 +857,38 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="7">
+          <span class="hits">2</span>
           
           <code class="ruby">    new_app = Application.create!(application_params)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="8">
+          <span class="hits">2</span>
           
           <code class="ruby">    pets.each do |pet|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="9">
+          <span class="hits">4</span>
           
           <code class="ruby">      if params.has_key?(&quot;#{pet.id}&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="10">
+          <span class="hits">3</span>
           
           <code class="ruby">        new_app.pets &lt;&lt; pet</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="11">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="6" data-linenumber="11">
+          <span class="hits">6</span>
           
           <code class="ruby">        app_fav = session[:favorites].find{ |favorite| favorite[&quot;id&quot;] == pet.id}</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
           
           <code class="ruby">        session[:favorites].delete(app_fav)</code>
         </li>
@@ -905,14 +905,14 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
           
           <code class="ruby">    flash[:notice] = &quot;Your application was submitted!&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
           <code class="ruby">    redirect_to &quot;/favorites&quot;</code>
         </li>
@@ -947,8 +947,8 @@
           <code class="ruby">  def application_params</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="22">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="22">
+          <span class="hits">2</span>
           
           <code class="ruby">    params.permit(:name, :address, :city, :state, :zip, :phone, :description)</code>
         </li>
@@ -1032,38 +1032,38 @@
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="9">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="19" data-linenumber="9">
+          <span class="hits">19</span>
           
           <code class="ruby">    pet = Pet.find(params[:pet_id])</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="10">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="19" data-linenumber="10">
+          <span class="hits">19</span>
           
           <code class="ruby">    @favorites = Favorite.new(session[:favorites])</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="11">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="19" data-linenumber="11">
+          <span class="hits">19</span>
           
           <code class="ruby">    @favorites.add_pet(pet)</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="12">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="19" data-linenumber="12">
+          <span class="hits">19</span>
           
           <code class="ruby">    session[:favorites] = @favorites.contents</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="13">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="19" data-linenumber="13">
+          <span class="hits">19</span>
           
           <code class="ruby">    flash[:notice] = &quot;You have added #{pet.name} to your favorites!&quot;</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="14">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="19" data-linenumber="14">
+          <span class="hits">19</span>
           
           <code class="ruby">    redirect_to &quot;/pets/#{pet.id}&quot;</code>
         </li>
@@ -1267,8 +1267,8 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="47" data-linenumber="9">
-          <span class="hits">47</span>
+        <li class="covered" data-hits="51" data-linenumber="9">
+          <span class="hits">51</span>
           
           <code class="ruby">    @pet = Pet.find(params[:pet_id])</code>
         </li>
@@ -2439,8 +2439,8 @@
           <code class="ruby">  def initialize(initial_contents)</code>
         </li>
       
-        <li class="covered" data-hits="174" data-linenumber="5">
-          <span class="hits">174</span>
+        <li class="covered" data-hits="182" data-linenumber="5">
+          <span class="hits">182</span>
           
           <code class="ruby">    @contents = [initial_contents].compact.flatten || Array.new()</code>
         </li>
@@ -2463,8 +2463,8 @@
           <code class="ruby">  def total_count</code>
         </li>
       
-        <li class="covered" data-hits="179" data-linenumber="9">
-          <span class="hits">179</span>
+        <li class="covered" data-hits="187" data-linenumber="9">
+          <span class="hits">187</span>
           
           <code class="ruby">    @contents.count</code>
         </li>
@@ -2487,8 +2487,8 @@
           <code class="ruby">  def add_pet(pet)</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="13">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="21" data-linenumber="13">
+          <span class="hits">21</span>
           
           <code class="ruby">    @contents &lt;&lt; pet</code>
         </li>
