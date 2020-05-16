@@ -11,5 +11,7 @@
 
 
   <% @application.pets.map do |pet| %>
+  <section class="pet-<%=pet.id%>">
   <%=link_to "#{pet.name}", "/pets/#{pet.id}"%>
+  <section>
   <% end %>
