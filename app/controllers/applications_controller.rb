@@ -4,11 +4,12 @@ class ApplicationsController < ApplicationController
   end
 
   def create
+    new_app = Application.create!(application_params)
     pets.each do |pet|
       if params.has_key?("#{pet.id}")
-        pet.applications.create!(application_params)
-        application_pet = session[:favorites].find{ |favorite| favorite["id"] == pet.id}
-        session[:favorites].delete(application_pet)
+        new_app.pets << pet
+        app_fav = session[:favorites].find{ |favorite| favorite["id"] == pet.id}
+        session[:favorites].delete(app_fav)
       end
     end
     flash[:notice] = "Your application was submitted!"
