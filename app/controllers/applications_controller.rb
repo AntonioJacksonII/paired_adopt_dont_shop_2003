@@ -4,7 +4,9 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    new_app = Application.create!(application_params)
+
+    new_app = Application.new(application_params)
+    if new_app.save
     pets.each do |pet|
       if params.has_key?("#{pet.id}")
         new_app.pets << pet
@@ -12,9 +14,15 @@ class ApplicationsController < ApplicationController
         session[:favorites].delete(app_fav)
       end
     end
+
     flash[:notice] = "Your application was submitted for the pets you selected!"
     redirect_to "/favorites"
+
+    else
+      flash[:notice] = "Please, fill in all the forms below to submit"
+      redirect_to "/applications/new"
   end
+end
 
   private
 
