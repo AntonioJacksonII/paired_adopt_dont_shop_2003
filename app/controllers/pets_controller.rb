@@ -44,6 +44,7 @@ class PetsController < ApplicationController
 
   def pet_params
     defaults = {adoption_status: 'adoptable'}
+
     params.permit(:image, :name, :description, :approximate_age, :sex, :shelter_id).reverse_merge(defaults)
   end
 end

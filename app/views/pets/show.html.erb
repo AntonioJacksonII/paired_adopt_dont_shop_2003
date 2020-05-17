@@ -16,8 +16,9 @@
     <p>Pet Approximate Age: <%= @pet.approximate_age %></p>
     <p>Pet Sex: <%= @pet.sex %></p>
     <p>Pet Adoption Status: <%= @pet.adoption_status %></p>
-
-
+    <% if @pet.adoption_status == "pending" %>
+    <p>On hold for <%=@pet.applications.find {|application| application.status == "approved"}.name  %></p>
+    <% end %>
 
     <% if favorites.contents.none?{ |content| content["id"] == @pet.id} %>
     <p><%= button_to "Favorite This Pet", "/favorites/#{@pet.id}", method: :patch %></p>

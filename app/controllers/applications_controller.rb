@@ -4,7 +4,6 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-
     new_app = Application.new(application_params)
     if new_app.save
       pets.each do |pet|
@@ -28,6 +27,8 @@ class ApplicationsController < ApplicationController
   def show
     @application = Application.find(params[:application_id])
   end
+
+  
 
   private
 
