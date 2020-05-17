@@ -111,13 +111,13 @@ RSpec.describe "Application Show Page", type: :feature do
     click_button("Approve Application for All Selected Pets")
     expect(current_path).to eq("/pets")
 
-    within "pet-#{pet1.id}" do
+    within "#pet-#{pet1.id}" do
       expect(page).to have_content("On Hold for Bob")
     end
-    within "pet-#{pet2.id}" do
+    within "#pet-#{pet2.id}" do
       expect(page).to have_content("On Hold for Bob")
     end
-    within "pet-#{pet3.id}" do
+    within "#pet-#{pet3.id}" do
       expect(page).to_not have_content("On Hold for Bob")
     end
   end

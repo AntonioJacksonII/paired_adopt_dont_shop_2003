@@ -28,7 +28,11 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:application_id])
   end
 
-  
+  def update
+    redirect_to "/pets"
+  end
+
+
 
   private
 

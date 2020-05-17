@@ -5,7 +5,7 @@
 
   <% @pets.each do |pet| %>
 
-    <section class="block">
+    <section class="block" id="pet-<%=pet.id%>">
 
       <strong>Pet Image: </strong> <%="Pet #{pet.id}: #{pet.image}" %> <br>
 
