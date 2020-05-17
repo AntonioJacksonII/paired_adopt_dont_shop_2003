@@ -105,10 +105,10 @@ RSpec.describe "Application Show Page", type: :feature do
 
     visit "/applications/#{application1.id}"
 
-    check("Garfield")
-    check("Spot")
+    check(pet1.id)
+    check(pet2.id)
 
-    click_button("Apply for Selected Pets")
+    click_button("Approve Application for All Selected Pets")
     expect(current_path).to eq("/pets")
 
     within "pet-#{pet1.id}" do
