@@ -20,8 +20,31 @@ RSpec.describe "Application Show Page", type: :feature do
         description: "Love, pets have lots of space for them"
       })
 
+  application2 = Application.create({
+      name: "Chris",
+      address: "222 Chris Road",
+      city: "Chris City",
+      state: "Chris State",
+      zip: "33233",
+      phone: "3033897987",
+      description: "Likes pets"
+    })
+
+    application3 = Application.create({
+        name: "Jim",
+        address: "222 Jim Road",
+        city: "Jim City",
+        state: "Jim State",
+        zip: "23423",
+        phone: "452343222",
+        description: "Pet lover"
+      })
+
+
     application1.pets << pet1
     application1.pets << pet2
+    application2.pets << pet1
+    application3.pets << pet1
     visit "/applications/#{application1.id}"
     within ".pet-#{pet1.id}" do
     click_link("Approve Pet")
