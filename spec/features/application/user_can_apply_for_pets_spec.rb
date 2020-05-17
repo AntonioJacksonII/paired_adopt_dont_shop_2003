@@ -109,7 +109,7 @@ describe 'Application Form', type: :feature do
     expect(current_path).to eq("/favorites")
     expect(page).to have_content("Your application was submitted for the pets you selected!")
     expect(page).to have_content("You have no favorite pets.")
-    expect(page).to_not have_content("Garfield")
-    expect(page).to_not have_content("Spot")
+    expect(page).to_not have_css("#favorite-#{pet1.id}")
+    expect(page).to_not have_css("#favorite-#{pet2.id}")
   end
 end
