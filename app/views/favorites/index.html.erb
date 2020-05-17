@@ -19,4 +19,13 @@
       </section>
       <% end %>
     <% end %>
+<h2>Pets With Applications On Them:</h2>
+
+<% applications.each do |application| %>
+  <% application.pets.each do |pet| %>
+    <<ul>
+      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %> %>
+    </ul>
+  <% end %>
+<% end %>
   </body>
