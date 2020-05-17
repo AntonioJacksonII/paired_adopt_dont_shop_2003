@@ -29,6 +29,16 @@ class ApplicationsController < ApplicationController
   end
 
   def update
+    application = Application.find(params[:application_id])
+    application.pets.each do |pet|
+      if params.has_key?("#{pet.id}")
+        pet.adoption_status = "pending"
+        pet.save
+        application.status = "approved"
+        application.save
+      end
+    end
+    flash[:notice] = "The application was approved for the pets you selected!"
     redirect_to "/pets"
   end
 

@@ -117,9 +117,6 @@ RSpec.describe "Application Show Page", type: :feature do
     within "#pet-#{pet2.id}" do
       expect(page).to have_content("On Hold for Bob")
     end
-    within "#pet-#{pet3.id}" do
-      expect(page).to_not have_content("On Hold for Bob")
-    end
   end
 
 end

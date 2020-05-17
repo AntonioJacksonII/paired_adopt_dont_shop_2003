@@ -1,5 +1,5 @@
 
-<h1>Shelter Pets</h1>
+<h1>All Pets</h1>
 
   <body class="display">
 
@@ -24,6 +24,11 @@
 
 
       <strong>Pet Shelter: </strong>  <%= link_to "#{pet.shelter.name}", "shelters/#{pet.shelter_id}" %> <br>
+      <% if pet.adoption_status == "pending" %>
+      <strong>
+        On Hold for <%=pet.applications.find {|application| application.status == "approved"}.name  %> <br>
+      </strong>
+      <% end %>
 
       <%= link_to "Update Pet #{pet.id}", "pets/#{pet.id}/edit" %>
       <%= link_to "Delete Pet #{pet.id}", "pets/#{pet.id}", method: :delete %>
