@@ -19,6 +19,8 @@
       </section>
       <% end %>
     <% end %>
+
+<% if applications.count > 0 %>
 <h1>Pets With Applications On Them:</h1>
 
 <% applications.each do |application| %>
@@ -29,5 +31,6 @@
     </ul>
   </section>
   <% end %>
+<% end %>
 <% end %>
   </body>
