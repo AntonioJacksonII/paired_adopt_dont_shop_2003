@@ -60,6 +60,18 @@ RSpec.describe "Pet Applications Index Page", type: :feature do
     click_link(application1.name)
     expect(current_path).to eql("/applications/#{application1.id}")
   end
+
+  it "displays a message when there are no applications for the pet" do
+    shelter = Shelter.create({name: "Happy Shelter",
+                          address: "12980 Grover Drive",
+                          city: "Doggy Vale",
+                          state: "Colorado",
+                          zip: 74578})
+    pet1 = shelter.pets.create(image: "cat.jpg", name: "Garfield", approximate_age: 1, sex: "Male", description: "Cute cat!")
+
+    visit "/pets/#{pet1.id}/applications"
+    expect(page).to have_content("There are no applications for Garfield yet")
+  end
 end
 
 

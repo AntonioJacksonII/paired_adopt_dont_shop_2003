@@ -1,8 +1,20 @@
-<h1>Applications For: <%=@pet.name%></h1>
 
+<% if @pet.applications.count == 0 %>
 
-<% @pet.applications.each do |application| %>
-  <section class = "applicant-<%= application.id %>">
-  <%= link_to "#{application.name}", "/applications/#{application.id}" %>
-  <section>
+<h1>There are no applications for <%= @pet.name %> yet</h1>
+
+<% else %>
+
+  <h1>Applications For: <%=@pet.name%></h1>
+
+  <body>
+
+    <% @pet.applications.each do |application| %>
+      <section class = "applicant-<%= application.id %>">
+      <%= link_to "#{application.name}", "/applications/#{application.id}" %>
+      <section>
+    <% end %>
+
+  </body>
+
   <% end %>
