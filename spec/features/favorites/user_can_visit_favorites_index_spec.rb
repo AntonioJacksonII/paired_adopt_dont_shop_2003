@@ -99,10 +99,21 @@ describe 'Favorites Index Page', type: :feature do
 
     expect(current_path).to eq("/favorites")
     expect(page).to have_content("Pets With Applications On Them:")
-    expect(page).to have_link("Raulgh")
-    expect(page).to have_link("Spot")
-    expect(page).to have_link("Luna")
+
+    within "#applicationpet-#{pet.id}" do
+      expect(page).to have_link("Raulgh")
+    end
+
+    within "#applicationpet-#{pet2.id}" do
+      expect(page).to have_link("Spot")
+    end
+
+    within "#favorite-#{pet3.id}" do
+      expect(page).to have_link("Luna")
+    end
+
     click_link("Raulgh")
+
     expect(current_path).to eq("/pets/#{pet.id}")
   end
 end

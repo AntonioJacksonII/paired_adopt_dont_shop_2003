@@ -23,9 +23,11 @@
 
 <% applications.each do |application| %>
   <% application.pets.each do |pet| %>
+  <section class="block" id="applicationpet-<%= pet.id %>">>
     <<ul>
       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %> %>
     </ul>
+  </section>
   <% end %>
 <% end %>
   </body>
