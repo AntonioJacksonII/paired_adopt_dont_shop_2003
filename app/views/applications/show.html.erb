@@ -17,7 +17,11 @@
   <section class="pet-<%=pet.id%>">
     <%= check_box_tag("#{pet.id}") %>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
-    <%= link_to "Approve Pet", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
+    <% if pet.adoption_status == "pending" %>
+      <%= link_to "Unapprove This Pet's Application", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
+    <% else %>
+      <%= link_to "Approve Pet", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
+    <% end %>
   </section>
   <% end %>
   <%= submit_tag 'Approve Application for All Selected Pets' %>
