@@ -71,15 +71,3 @@ RSpec.describe "Application Show Page", type: :feature do
       expect(page).not_to have_content(pet3.name)
   end
 end
-# As a visitor
-# When I visit an applications show page "/applications/:id"
-# I can see the following:
-# - name
-# - address
-# - city
-# - state
-# - zip
-# - phone number
-# - Description of why the applicant says they'd be a good home for this pet(s)
-# - names of all pet's that this application is for
-# (all names of pets should be links to their show page)
