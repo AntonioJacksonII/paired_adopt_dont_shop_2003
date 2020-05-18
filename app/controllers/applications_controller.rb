@@ -4,8 +4,11 @@ class ApplicationsController < ApplicationController
   end
 
   def create
+
+    any_pets = pets.any?{|pet| params.keys.include?("#{pet.id}")}
     new_app = Application.new(application_params)
-    if new_app.save
+
+    if new_app.save  && any_pets
       pets.each do |pet|
         if params.has_key?("#{pet.id}")
           new_app.pets << pet
