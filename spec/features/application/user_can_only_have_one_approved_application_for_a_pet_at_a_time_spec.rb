@@ -34,18 +34,18 @@ RSpec.describe "Applications show page", type: :feature do
       application2.pets << pet1
       application1.pets << pet2
       visit "/applications/#{application1.id}"
-      within "pet-#{pet1.id}" do
+      within ".pet-#{pet1.id}" do
       click_link "Approve Pet"
       end
       visit "/applications/#{application1.id}"
-      within "pet-#{pet2.id}" do
+      within ".pet-#{pet2.id}" do
         expect(page).not_to have_content("Approve Pet")
       end
-      visit "/pet/#{pet1.id}/applications"
-      within "applicant-#{application1.id}" do
+      visit "/pets/#{pet1.id}/applications"
+      within ".applicant-#{application1.id}" do
       expect(page).to have_content(application1.name)
       end
-      within "applicant-#{application2.id}" do
+      within ".applicant-#{application2.id}" do
         expect(page).to have_content(application2.name)
       end
   end

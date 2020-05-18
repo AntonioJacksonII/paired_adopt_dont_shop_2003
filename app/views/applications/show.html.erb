@@ -1,24 +1,21 @@
 <h1>Application for: <%=@application.name %> </h1>
 
 
-<strong>Applicant's Name: <%=@application.name%></strong><br>
-<strong>Applicant's Address: <%=@application.address%></strong><br>
-<strong>Applicant's City: <%=@application.city%></strong><br>
-<strong>Applicant's State: <%=@application.state%></strong><br>
-<strong>Applicant's Zip: <%=@application.zip%></strong><br>
-<strong>Applicant's Phone Number: <%=@application.phone%></strong><br>
-<strong>Applicant's Name: <%=@application.description%></strong><br>
+<strong>Applicant's Name: <%=@application.name%></strong>
+<strong>Applicant's Address: <%=@application.address%></strong>
+<strong>Applicant's City: <%=@application.city%></strong>
+<strong>Applicant's State: <%=@application.state%></strong>
+<strong>Applicant's Zip: <%=@application.zip%></strong>
+<strong>Applicant's Phone Number: <%=@application.phone%></strong>
+<strong>Applicant's Name: <%=@application.description%></strong>
 
-<p>Click "Approve Pet" next to a pet's name to approve the application for only that pet.
-  To approve more than one pet at a time, check the boxes next to every pet you want to approve, then click "Approve Application for All Selected Pets."</p>
 
-<%= form_tag("/applications/#{@application.id}", method: :patch) do %>
   <% @application.pets.map do |pet| %>
   <section class="pet-<%=pet.id%>">
-    <%= check_box_tag("#{pet.id}") %>
-    <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
+
+  <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
+  <% if pet.applications.none? {|application| application.status == "approved"} %>
     <%= link_to "Approve Pet", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
-  </section>
   <% end %>
-  <%= submit_tag 'Approve Application for All Selected Pets' %>
+  </section>
   <% end %>
