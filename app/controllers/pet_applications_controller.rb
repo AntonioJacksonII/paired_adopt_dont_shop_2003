@@ -12,7 +12,7 @@ class PetApplicationsController < ApplicationController
     pet.adoption_status = "pending"
     pet.save
     application.save
-    flash[:notice] = "Your application was submitted for the pets you selected!"
+    flash[:notice] = "Your application was approved for the pet you selected!"
     redirect_to "/pets/#{pet.id}"
   end
 
