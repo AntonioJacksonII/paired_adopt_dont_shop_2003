@@ -2,12 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "shelter create page", type: :feature do
   it "can create shelters" do
-    shelter = Shelter.create(name: "Dog Shelter",
-                             address: "12980 Grover Drive",
-                             city: "Doggy Vale",
-                             state: "Colorado",
-                             zip: 74578)
-
     visit "/shelters"
     click_link('New Shelter')
     expect(current_path).to have_content('/shelters/new')
@@ -19,7 +13,28 @@ RSpec.describe "shelter create page", type: :feature do
     click_on 'submit'
     expect(current_path).to have_content('/shelters')
     expect(page).to have_content("Dog Shelter")
+  end
 
+  it "displays a flash message indicating missing fields on incomplete forms" do
+    visit "/shelters"
+    click_link('New Shelter')
+    fill_in :name, with: "Dog Shelter"
 
-end
+    click_on 'submit'
+
+    expect(page).to have_content("Please fill in address, city, state, zip")
+    fill_in :address, with: "123 Main St"
+    click_on 'submit'
+    expect(page).to have_content("Please fill in city, state, zip")
+    fill_in :city, with: "Denver"
+    click_on 'submit'
+    expect(page).to have_content("Please fill in state, zip")
+    fill_in :zip, with: "12345"
+    click_on 'submit'
+    expect(page).to have_content("Please fill in state")
+    fill_in :state, with: "CO"
+    click_on 'submit'
+    expect(current_path).to eq("/shelters")
+  end
+
 end
