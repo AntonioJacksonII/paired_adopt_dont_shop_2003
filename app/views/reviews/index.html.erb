@@ -1,0 +1,11 @@
+<h1>All Reviews</h1>
+
+
+<% @reviews.each do |review| %>
+  <section class = "review-<%=review.id%>"
+  <strong>Review Title: <%=review.title%></strong><br>
+  <strong>Review Rating: <%=review.rating%></strong><br>
+  <strong>Review Content: <%=review.content%></strong><br>
+</section>
+
+<% end %>

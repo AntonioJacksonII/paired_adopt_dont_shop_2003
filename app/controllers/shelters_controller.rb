@@ -8,7 +8,7 @@ class SheltersController < ApplicationController
 
   def show
     @shelter = Shelter.find(params[:id])
-  
+
   end
 
   def new
@@ -34,6 +34,12 @@ class SheltersController < ApplicationController
   end
 
   def destroy
+    shelter = Shelter.find(params[:id])
+    Review.destroy(shelter.reviews.map{|review| review.id})
+
+
+
+
     Shelter.destroy(params[:id])
 
     redirect_to '/shelters'
