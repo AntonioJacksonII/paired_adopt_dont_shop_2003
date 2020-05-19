@@ -16,22 +16,35 @@ RSpec.describe "Shelter Show Page", type: :feature do
       shelter_id: shelter.id
       })
 
-      visit "/pets/#{pet.id}"
-      click_button("Favorite This Pet")
-      visit "/applications/new"
-      check "#{pet.id}"
+    application1 = Application.create({
+        name: "Bob",
+        address: "222 Bob Road",
+        city: "Bob City",
+        state: "Bob State",
+        zip: "39233",
+        phone: "30332432",
+        description: "Love, pets have lots of space for them"
+      })
 
-      fill_in :name, with: "Applicant A"
-      fill_in :address, with: "123 A St"
-      fill_in :city, with: "Fake"
-      fill_in :state, with: "CO"
-      fill_in :zip, with: "80202"
-      fill_in :phone, with: "123-456-7891"
-      fill_in :description, with: "Clean home"
-      click_button("Submit Application")
-      visit "/pets/#{pet.id}/applications"
-      expect(page).to have_content("#{pet.name}")
-      expect(page).to have_con
+    application1.pets << pet
+
+
+      visit "applications/#{application1.id}"
+      within ".pet-#{pet.id}" do
+      click_link("Approve Pet")
+      end
+      visit "/shelters/#{shelter.id}"
+      expect(page).not_to have_link("Delete Shelter")
+
+
 
   end
 end
+
+# As a visitor
+# If a shelter has approved applications for any of their pets
+# I can not delete that shelter
+# Either:
+# - there is no button visible for me to delete the shelter
+# - if I click on the delete link for deleting a
+#   shelter, I see a flash message indicating that the shelter can not be deleted.
