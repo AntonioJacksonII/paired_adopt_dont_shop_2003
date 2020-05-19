@@ -5,6 +5,7 @@ class Favorite
     @contents = [initial_contents].compact.flatten || Array.new()
   end
 
+
   def total_count
     @contents.count
   end
