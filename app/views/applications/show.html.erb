@@ -15,10 +15,15 @@
 <%= form_tag("/applications/#{@application.id}", method: :patch) do %>
   <% @application.pets.map do |pet| %>
   <section class="pet-<%=pet.id%>">
-    <%= check_box_tag("#{pet.id}") %>
+    <% unless pet.adoption_status == "pending" %>
+      <%= check_box_tag("#{pet.id}") %>
+    <% end %>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
-     <% if pet.applications.none? {|application| application.status == "approved"} %>
-    <%= link_to "Approve Pet", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
+
+    <% if pet.adoption_status == "pending" %>
+      <%= link_to "Unapprove This Pet's Application", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
+    <% else %>
+      <%= link_to "Approve Pet", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
     <% end %>
   </section>
   <% end %>

@@ -8,12 +8,22 @@ class PetApplicationsController < ApplicationController
   def update
     pet = Pet.find(params[:pet_id])
     application = Application.find(params[:application_id])
-    application.status = "approved"
-    pet.adoption_status = "pending"
-    pet.save
-    application.save
-    flash[:notice] = "Your application was approved for the pet you selected!"
-    redirect_to "/pets/#{pet.id}"
+
+    if pet.adoption_status == "pending"
+      pet.adoption_status = "adoptable"
+      pet.save
+      if application.pets.all?{|pet| pet.adoption_status == "adoptable"}
+        application.status = "pending"
+      end
+      redirect_to "/applications/#{application.id}"
+    else
+      application.status = "approved"
+      pet.adoption_status = "pending"
+      pet.save
+      application.save
+      flash[:notice] = "Your application was approved for the pet you selected!"
+      redirect_to "/pets/#{pet.id}"
+    end
   end
 
 
