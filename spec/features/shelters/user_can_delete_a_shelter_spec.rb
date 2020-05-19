@@ -63,4 +63,30 @@ end
      visit "/shelters/#{shelter.id}"
      expect(page).to_not have_link("Delete Shelter")
   end
+
+  it "deletes all pets belonging to a shelter when a shelter is deleted" do
+    shelter = Shelter.create(name: "Fido Shelter",
+                             address: "12888 Grover Drive",
+                             city: "Dody Vale",
+                             state: "Dog Twon",
+                             zip: 74599)
+    shelter2 = Shelter.create({name: "Happy Shelter",
+                             address: "12980 Grover Drive",
+                             city: "Doggy Vale",
+                             state: "Colorado",
+                             zip: 74578})
+     pet1 = shelter.pets.create(image: "cat.jpg", name: "Garfield", approximate_age: 1, sex: "Male", description: "Cute cat!")
+     pet2 = shelter2.pets.create(image: "cute.jpg", name: "Spot", approximate_age: 2, sex: "Male", description: "Spotted Puppy!")
+
+     visit "/shelters"
+
+     within("#shelter-#{shelter.id}") do
+       click_link("Delete Shelter")
+     end
+
+     visit "/pets"
+
+     expect(page).to_not have_link("Garfield")
+     expect(page).to have_link("Spot")
+  end
 end
