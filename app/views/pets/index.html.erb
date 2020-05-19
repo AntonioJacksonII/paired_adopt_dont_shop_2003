@@ -4,32 +4,20 @@
   <body class="display">
 
   <% @pets.each do |pet| %>
-
     <section class="block" id="pet-<%=pet.id%>">
-
-      <strong>Pet Image: </strong> <%="Pet #{pet.id}: #{pet.image}" %> <br>
-
-
-
-      <strong>Pet Name: </strong> <%= link_to "#{pet.name}", "/pets/#{pet.id}" %> <br>
-
-
-
-      <strong>Pet Approximate Age: </strong>  <%= "Pet #{pet.id}: #{pet.approximate_age}" %> <br>
-
-
-
-      <strong>Pet Gender: </strong>  <%= "Pet #{pet.id}: #{pet.sex}" %> <br>
-
-
-
-      <strong>Pet Shelter: </strong>  <%= link_to "#{pet.shelter.name}", "shelters/#{pet.shelter_id}" %> <br>
+      <%= "#{pet.image}" %> <br>
+      <strong>Name: </strong> <%= link_to "#{pet.name}", "/pets/#{pet.id}" %> <br>
+      <strong>Approximate Age: </strong>  <%= "#{pet.approximate_age}" %> <br>
+      <strong>Gender: </strong>  <%= "#{pet.sex}" %> <br>
+      <strong>Pet's Shelter: </strong>  <%= link_to "#{pet.shelter.name}", "shelters/#{pet.shelter_id}" %> <br>
       <% if pet.adoption_status == "pending" %>
       <strong>Current Status:</strong> On Hold for <%=pet.applications.find {|application| application.status == "approved"}.name  %> <br>
       <% end %>
 
       <%= link_to "Update Pet #{pet.id}", "pets/#{pet.id}/edit" %>
-      <%= link_to "Delete Pet #{pet.id}", "pets/#{pet.id}", method: :delete %>
+      <% unless pet.adoption_status == "pending" %>
+        <%= link_to "Delete Pet #{pet.id}", "pets/#{pet.id}", method: :delete %>
+      <% end %>
       <br>
       <br>
       <% end %>
