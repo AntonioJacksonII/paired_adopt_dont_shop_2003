@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-05-19T15:13:02-06:00">2020-05-19T15:13:02-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-05-19T15:32:40-06:00">2020-05-19T15:32:40-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.34
+         2.33
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>79</b> files in total.
-    <b>1446</b> relevant lines. 
-    <span class="green"><b>1446</b> lines covered</span> and
+    <b>80</b> files in total.
+    <b>1455</b> relevant lines. 
+    <span class="green"><b>1455</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -57,7 +57,7 @@
         <td>9</td>
         <td>9</td>
         <td>0</td>
-        <td>48.2</td>
+        <td>48.4</td>
       </tr>
       
       <tr>
@@ -97,7 +97,7 @@
         <td>30</td>
         <td>30</td>
         <td>0</td>
-        <td>6.3</td>
+        <td>6.4</td>
       </tr>
       
       <tr>
@@ -177,7 +177,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>77.9</td>
+        <td>78.4</td>
       </tr>
       
       <tr>
@@ -343,9 +343,9 @@
       <tr>
         <td class="strong"><a href="#cdf0c48e7d1aa8ef2afb5b7ecf48061e5d4d7221" class="src_link" title="spec/features/application/user_can_click_applicants_name_and_get_to_applicants_show_page_spec.rb">spec/features/application/user_can_click_applicants_name_and_get_to_applicants_show_page_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>3</td>
-        <td>2</td>
-        <td>2</td>
+        <td>35</td>
+        <td>11</td>
+        <td>11</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -671,6 +671,16 @@
       </tr>
       
       <tr>
+        <td class="strong"><a href="#29b424d55680e98311a52698777ee218b0f00697" class="src_link" title="spec/features/shelters/user_can_click_shelter_name_and_go_to_shelter_show_page_spec.rb">spec/features/shelters/user_can_click_shelter_name_and_go_to_shelter_show_page_spec.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0.0</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#a0e044febce13e7c1ebacac162b1d929a427db75" class="src_link" title="spec/features/shelters/user_can_click_shelter_name_and_go_to_show_page_spec.rb">spec/features/shelters/user_can_click_shelter_name_and_go_to_show_page_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>38</td>
@@ -900,8 +910,8 @@
           <code class="ruby">  def favorites</code>
         </li>
       
-        <li class="covered" data-hits="399" data-linenumber="6">
-          <span class="hits">399</span>
+        <li class="covered" data-hits="401" data-linenumber="6">
+          <span class="hits">401</span>
           
           <code class="ruby">    @favorites ||= Favorite.new(session[:favorites])</code>
         </li>
@@ -1153,8 +1163,8 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="29">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="29">
+          <span class="hits">18</span>
           
           <code class="ruby">    @application = Application.find(params[:application_id])</code>
         </li>
@@ -1846,14 +1856,14 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="4">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="4">
+          <span class="hits">24</span>
           
           <code class="ruby">    @shelter_id = params[:shelter_id]</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="5">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="5">
+          <span class="hits">24</span>
           
           <code class="ruby">    @pets = Pet.all</code>
         </li>
@@ -3342,8 +3352,8 @@
           <code class="ruby">  def initialize(initial_contents)</code>
         </li>
       
-        <li class="covered" data-hits="290" data-linenumber="5">
-          <span class="hits">290</span>
+        <li class="covered" data-hits="292" data-linenumber="5">
+          <span class="hits">292</span>
           
           <code class="ruby">    @contents = [initial_contents].compact.flatten || Array.new()</code>
         </li>
@@ -3372,8 +3382,8 @@
           <code class="ruby">  def total_count</code>
         </li>
       
-        <li class="covered" data-hits="299" data-linenumber="10">
-          <span class="hits">299</span>
+        <li class="covered" data-hits="301" data-linenumber="10">
+          <span class="hits">301</span>
           
           <code class="ruby">    @contents.count</code>
         </li>
@@ -5126,8 +5136,8 @@
     <h3>spec/features/application/user_can_click_applicants_name_and_get_to_applicants_show_page_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>2</b> relevant lines. 
-      <span class="green"><b>2</b> lines covered</span> and
+      <b>11</b> relevant lines. 
+      <span class="green"><b>11</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5150,7 +5160,199 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe</code>
+          <code class="ruby">RSpec.describe &quot;Application Show Page&quot;, type: :feature do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  it &quot;Can go to application show page when clicking applicants name&quot; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    shelter = Shelter.create({name: &quot;Happy Shelter&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">                          address: &quot;12980 Grover Drive&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">                          city: &quot;Doggy Vale&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">                          state: &quot;Colorado&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">                          zip: 74578})</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    pet1 = shelter.pets.create(image: &quot;cat.jpg&quot;, name: &quot;Garfield&quot;, approximate_age: 1, sex: &quot;Male&quot;, description: &quot;Cute cat!&quot;, adoption_status: &quot;pending&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    pet2 = shelter.pets.create(image: &quot;cute.jpg&quot;, name: &quot;Spot&quot;, approximate_age: 2, sex: &quot;Male&quot;, description: &quot;Spotted Puppy!&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    application1 = Application.create({</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">        name: &quot;Bob&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">        address: &quot;222 Bob Road&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">        city: &quot;Bob City&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">        state: &quot;Bob State&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">        zip: &quot;39233&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">        phone: &quot;30332432&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">        description: &quot;Love, pets have lots of space for them&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">        status: &quot;approved&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">      })</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      application1.pets &lt;&lt; pet1</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      visit &quot;/pets&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      click_link(&quot;#{application1.name}&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(current_path).to eql(&quot;/applications/#{application1.id}&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">end</code>
         </li>
       
     </ol>
@@ -16950,6 +17152,25 @@
           
           <code class="ruby"> end</code>
         </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="29b424d55680e98311a52698777ee218b0f00697">
+  <div class="header">
+    <h3>spec/features/shelters/user_can_click_shelter_name_and_go_to_shelter_show_page_spec.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>0</b> relevant lines. 
+      <span class="green"><b>0</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
       
     </ol>
   </pre>

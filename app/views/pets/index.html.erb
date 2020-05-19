@@ -11,7 +11,7 @@
       <strong>Gender: </strong>  <%= "#{pet.sex}" %> <br>
       <strong>Pet's Shelter: </strong>  <%= link_to "#{pet.shelter.name}", "shelters/#{pet.shelter_id}" %> <br>
       <% if pet.adoption_status == "pending" %>
-      <strong>Current Status:</strong> On Hold for <%=link_to pet.applications.find {|application| application.status == "approved"}.name, "applications/pet.applications.find {|application| application.status == "approved"}.id"  %> <br>
+      <strong>Current Status:</strong> On Hold for <%=link_to pet.applications.find {|application| application.status == "approved"}.name, "applications/#{pet.applications.find {|application| application.status == "approved"}.id}"  %> <br>
       <% end %>
 
       <%= link_to "Update Pet #{pet.id}", "pets/#{pet.id}/edit" %>
