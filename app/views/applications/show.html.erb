@@ -10,7 +10,8 @@
 <strong>Applicant's Name: <%=@application.description%></strong><br>
 
 <p>Click "Approve Pet" next to a pet's name to approve the application for only that pet.
-  To approve more than one pet at a time, check the boxes next to every pet you want to approve, then click "Approve Application for All Selected Pets."</p>
+  To approve more than one pet at a time, check the boxes next to every pet
+   you want to approve, then click "Approve Application for All Selected Pets."</p>
 
 <%= form_tag("/applications/#{@application.id}", method: :patch) do %>
   <% @application.pets.map do |pet| %>
@@ -23,7 +24,9 @@
     <% if pet.adoption_status == "pending" %>
       <%= link_to "Unapprove This Pet's Application", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
     <% else %>
+      <% if pet.applications.none? {|application| application.status == "approved"} %>
       <%= link_to "Approve Pet", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
+      <% end %>
     <% end %>
   </section>
   <% end %>

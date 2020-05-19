@@ -48,6 +48,7 @@ class ApplicationsController < ApplicationController
   private
 
   def application_params
-    params.permit(:name, :address, :city, :state, :zip, :phone, :description)
+    defaults = {status: 'pending'}
+    params.permit(:name, :address, :city, :state, :zip, :phone, :description).reverse_merge(defaults)
   end
 end

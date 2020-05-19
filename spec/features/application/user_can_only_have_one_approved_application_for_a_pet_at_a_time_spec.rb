@@ -49,4 +49,20 @@ RSpec.describe "Applications show page", type: :feature do
         expect(page).to have_content(application2.name)
       end
   end
-end  
+end
+
+
+
+
+
+
+
+
+# As a visitor
+# When a pet has more than one application made for them
+# And one application has already been approved for them
+# I can not approve any other applications for that pet but all other applications
+#  still remain on file (they can be seen on the pets application index page)
+# (This can be done by either taking away the option
+#   to approve the application, or having a flash message pop up
+#   saying that no more applications can be approved for this pet at this time)

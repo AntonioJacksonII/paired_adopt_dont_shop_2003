@@ -2,7 +2,9 @@
 <h1>Shelter Info</h1>
 <nav class="navigation">
   <%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit", class: "link" %>
-  <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete, class: "link" %>
+  <% if @shelter.pets.none? { |pet| pet.applications {|application| applications.status == "approved"}} %>
+    <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete, class: "link" %>
+  <% end %>
   <%= link_to "View Shelters Pets", "/shelters/#{@shelter.id}/pets", class: "link" %>
   <%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new", class: "link" %>
 </nav>

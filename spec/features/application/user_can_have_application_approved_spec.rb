@@ -118,5 +118,4 @@ RSpec.describe "Application Show Page", type: :feature do
       expect(page).to have_content("On Hold for Bob")
     end
   end
-
 end

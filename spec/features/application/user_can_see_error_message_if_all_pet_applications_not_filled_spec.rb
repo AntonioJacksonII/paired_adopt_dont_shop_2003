@@ -49,7 +49,9 @@ RSpec.describe "Application Form", type: :feature do
                           city: "Doggy Vale",
                           state: "Colorado",
                           zip: 74578})
-                          pet1 = shelter.pets.create(image: "cat.jpg", name: "Garfield", approximate_age: 1, sex: "Male", description: "Cute cat!")
+
+pet1 = shelter.pets.create(image: "cat.jpg", name: "Garfield", approximate_age: 1, sex: "Male", description: "Cute cat!")
+
     pet2 = shelter.pets.create(image: "cute.jpg", name: "Spot", approximate_age: 2, sex: "Male", description: "Spotted Puppy!")
     visit "/pets/#{pet1.id}"
     click_button("Favorite This Pet")
