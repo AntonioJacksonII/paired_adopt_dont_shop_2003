@@ -40,23 +40,33 @@ RSpec.describe "Pet Creation Page", type: :feature do
     click_button("Create Pet")
 
     expect(current_path).to eql("/shelters/#{shelter.id}/pets/new")
-    expect(page).to have_content("Please fill in name, description, approximate age, sex")
+    expect(page).to have_content("Please fill in all fields, including name, description, approximate age, sex")
 
+    fill_in :image, with: "Fido url"
     fill_in :name, with: "Fido"
     click_button("Create Pet")
     expect(current_path).to eql("/shelters/#{shelter.id}/pets/new")
-    expect(page).to have_content("Please fill in description, approximate age, sex")
+    expect(page).to have_content("Please fill in all fields, including description, approximate age, sex")
 
+    fill_in :image, with: "Fido url"
+    fill_in :name, with: "Fido"
     fill_in :description, with: "A loveable cuddley pet"
     click_button("Create Pet")
     expect(current_path).to eql("/shelters/#{shelter.id}/pets/new")
-    expect(page).to have_content("Please fill in approximate age, sex")
+    expect(page).to have_content("Please fill in all fields, including approximate age, sex")
 
+    fill_in :image, with: "Fido url"
+    fill_in :name, with: "Fido"
+    fill_in :description, with: "A loveable cuddley pet"
     fill_in :approximate_age, with: 3
     click_button("Create Pet")
     expect(current_path).to eql("/shelters/#{shelter.id}/pets/new")
-    expect(page).to have_content("Please fill in sex")
+    expect(page).to have_content("Please fill in all fields, including sex")
 
+    fill_in :image, with: "Fido url"
+    fill_in :name, with: "Fido"
+    fill_in :description, with: "A loveable cuddley pet"
+    fill_in :approximate_age, with: 3
     fill_in :sex, with: "Male"
     click_button("Create Pet")
     expect(current_path).to eql("/shelters/#{shelter.id}/pets")
