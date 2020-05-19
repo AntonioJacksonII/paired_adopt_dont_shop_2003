@@ -9,6 +9,10 @@
   <%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new", class: "link" %>
 </nav>
 
+<strong>Count of Pets: <%=@shelter.count_of_pets%></strong>
+<strong>Average Shelter Review Rating: <%=@shelter.average_rating%></strong>
+<strong>Number of applications on file: <%=@shelter.number_of_applications%></strong>
+
 <body class="display">
   <div class="show">
   <strong>Shelter Name: </strong><%= @shelter.name %><br>

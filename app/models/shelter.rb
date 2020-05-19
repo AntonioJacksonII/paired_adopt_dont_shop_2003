@@ -5,11 +5,14 @@ class Shelter < ApplicationRecord
 
 
   def count_of_pets
-    Pet.count
+    pets.count
   end
 
   def average_rating
-    reviews.average(:rating).round(1)
+    review_rating = reviews.average(:rating)
+    if review_rating != nil
+      review_rating.round(1)
+    end
   end
 
   def number_of_applications
