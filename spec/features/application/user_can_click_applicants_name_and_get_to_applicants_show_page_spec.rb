@@ -25,8 +25,11 @@ RSpec.describe "Application Show Page", type: :feature do
       visit "/pets"
       click_link("#{application1.name}")
       expect(current_path).to eql("/applications/#{application1.id}")
-
-
+      visit "/pets/#{pet1.id}"
+      within "#pet-#{pet1.id}" do
+        click_link("#{application1.name}")
+        expect(current_path).to eql("/applications/#{application1.id}")
+      end
 
 
 

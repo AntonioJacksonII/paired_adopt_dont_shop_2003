@@ -19,7 +19,7 @@
     <p>Pet Sex: <%= @pet.sex %></p>
     <p>Pet Adoption Status: <%= @pet.adoption_status %></p>
     <% if @pet.adoption_status == "pending" %>
-    <p>On hold for <%=@pet.applications.find {|application| application.status == "approved"}.name  %></p>
+    <p>On hold for <%= link_to @pet.applications.find {|application| application.status == "approved"}.name, "/applications/#{@pet.applications.find {|application| application.status == "approved"}.id}"  %></p>
     <% end %>
 
     <% if favorites.contents.none?{ |content| content["id"] == @pet.id} %>
