@@ -9,15 +9,9 @@
 <strong>Applicant's Phone Number: <%=@application.phone%></strong>
 <strong>Applicant's Name: <%=@application.description%></strong>
 
-
+<%= form_tag("/applications/#{@application.id}", method: :patch) do %>
   <% @application.pets.map do |pet| %>
   <section class="pet-<%=pet.id%>">
-<<<<<<< HEAD
-
-  <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
-  <% if pet.applications.none? {|application| application.status == "approved"} %>
-    <%= link_to "Approve Pet", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
-=======
     <% unless pet.adoption_status == "pending" %>
       <%= check_box_tag("#{pet.id}") %>
     <% end %>
@@ -26,10 +20,11 @@
     <% if pet.adoption_status == "pending" %>
       <%= link_to "Unapprove This Pet's Application", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
     <% else %>
+      <% if pet.applications.none? {|application| application.status == "approved"} %>
       <%= link_to "Approve Pet", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
+      <% end %>
     <% end %>
   </section>
->>>>>>> master
   <% end %>
-  </section>
+  <%= submit_tag 'Approve Application for All Selected Pets' %>
   <% end %>

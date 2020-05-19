@@ -49,4 +49,4 @@ RSpec.describe "Applications show page", type: :feature do
         expect(page).to have_content(application2.name)
       end
   end
-end
+end  
