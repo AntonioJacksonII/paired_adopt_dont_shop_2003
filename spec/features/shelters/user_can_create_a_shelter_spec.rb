@@ -22,7 +22,7 @@ RSpec.describe "shelter create page", type: :feature do
 
     click_on 'submit'
 
-    expect(page).to have_content("Please fill in the address, city, state, and zip")
+    expect(page).to have_content("Please fill in address, city, state, zip")
   end
 
 end
