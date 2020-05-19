@@ -11,7 +11,6 @@ class PetsController < ApplicationController
   end
 
   def new
-
     @shelter_id = params[:id]
   end
 
@@ -19,8 +18,8 @@ class PetsController < ApplicationController
     shelter = Shelter.find(params[:id])
     pet = shelter.pets.new(pet_params)
     unless pet.save
-      flash[:notice] = "Please fill in #{missing_params}"
-      render "/shelters/#{shelter.id}/pets/new"
+      flash[:notice] = "Please fill in all fields, including #{missing_params}"
+      redirect_to "/shelters/#{shelter.id}/pets/new"
     else
       redirect_to "/shelters/#{shelter.id}/pets"
     end
@@ -51,7 +50,26 @@ class PetsController < ApplicationController
 
   def pet_params
     defaults = {adoption_status: 'adoptable'}
-
     params.permit(:image, :name, :description, :approximate_age, :sex, :shelter_id).reverse_merge(defaults)
+  end
+
+  def missing_params
+    missing = []
+    if params["image"] == ""
+      missing << "image"
+    end
+    if params["name"] == ""
+      missing << "name"
+    end
+    if params["description"] == ""
+      missing << "description"
+    end
+    if params["approximate_age"] == ""
+      missing << "approximate age"
+    end
+    if params["sex"] == ""
+      missing << "sex"
+    end
+    missing.join(", ")
   end
 end
