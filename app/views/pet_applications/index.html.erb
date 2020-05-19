@@ -5,7 +5,7 @@
 
 <% else %>
 
-  <h1>Applications For: <%=@pet.name%></h1>
+  <h1>Applications For: <%=link_to @pet.name, "/pets/#{@pet.id}"%></h1>
 
   <body>
 
