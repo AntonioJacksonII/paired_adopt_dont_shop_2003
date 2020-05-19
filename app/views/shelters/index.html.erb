@@ -8,13 +8,14 @@
 
   <% @shelters.each do |shelter| %>
 
-  <section class="block">
+  <p><section class="block" id="shelter-<%=shelter.id%>">
 
 
-    <strong>Shelter Name: </strong> <strong><%= link_to shelter.name, "shelters/#{shelter.id}" %></strong>
-    <%= link_to "Update Shelter #{shelter.id}", "/shelters/#{shelter.id}/edit"%>
-    <%= link_to "Delete Shelter #{shelter.id}", "/shelters/#{shelter.id}", method: :delete %>
-
+    <strong>Shelter Name: </strong> <strong><%= link_to shelter.name, "shelters/#{shelter.id}" %></strong><br>
+    <%= link_to "Update Shelter", "/shelters/#{shelter.id}/edit"%><br>
+    <% unless shelter.pets.any? { |pet| pet.adoption_status == "pending" } %>
+    <%=   link_to "Delete Shelter", "/shelters/#{shelter.id}", method: :delete %>
+    <% end %>
     </section>
 
   <% end %>

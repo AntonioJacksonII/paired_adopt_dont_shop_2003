@@ -36,6 +36,7 @@ class SheltersController < ApplicationController
   def destroy
     shelter = Shelter.find(params[:id])
     Review.destroy(shelter.reviews.map{|review| review.id})
+    Pet.destroy(shelter.pets.map{|pet| pet.id})
 
 
 
