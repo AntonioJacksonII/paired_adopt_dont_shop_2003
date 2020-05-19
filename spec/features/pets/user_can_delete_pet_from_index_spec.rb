@@ -49,7 +49,6 @@ RSpec.describe "Shelter Index Page", type: :feature do
          })
       application1.pets << pet
       visit "/applications/#{application1.id}"
-      save_and_open_page
       click_link("Approve Pet")
       visit '/pets'
       expect(page).to_not have_link("Delete Pet")
