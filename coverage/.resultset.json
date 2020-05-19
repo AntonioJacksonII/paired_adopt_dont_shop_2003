@@ -1335,10 +1335,6 @@
         1,
         1,
         null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
       "/Users/ericlarson/turing/2module/paired_adopt_dont_shop_2003/spec/features/pets/user_can_delete_pet_from_index_spec.rb": [
@@ -3273,6 +3269,6 @@
         null
       ]
     },
-    "timestamp": 1589920484
+    "timestamp": 1589920619
   }
 }
