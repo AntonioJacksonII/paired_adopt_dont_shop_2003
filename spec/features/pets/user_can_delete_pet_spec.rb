@@ -26,9 +26,36 @@ RSpec.describe "Delete Pet Page", type: :feature do
     expect(current_path).to eql("/pets")
     expect(page).to_not have_content(pet.image)
     expect(page).to_not have_content(pet.name)
-  
+  end
 
+  it "cannot delete a pet with an approved application from Pet Show page" do
+    shelter_1 = Shelter.create({name: "Mildias Shelter",
+                            address: "12980 Grover Drive",
+                            city: "Doggy Vale",
+                            state: "Colorado",
+                            zip: 74578})
+    pet = Pet.create({
+       image: "Cloudy Url",
+       name: "Cloudy",
+       approximate_age: 41,
+       sex: "Female",
+       shelter_id: shelter_1.id,
+       })
+    application1 = Application.create({
+           name: "Bob",
+           address: "222 Bob Road",
+           city: "Bob City",
+           state: "Bob State",
+           zip: "39233",
+           phone: "30332432",
+           description: "Love, pets have lots of space for them"
+         })
+      application1.pets << pet
+      visit "/applications/#{application1.id}"
+      click_link("Approve Pet")
 
+      visit "/pets/#{pet.id}"
+      expect(page).to_not have_link("Delete Pet")
   end
 
 end
