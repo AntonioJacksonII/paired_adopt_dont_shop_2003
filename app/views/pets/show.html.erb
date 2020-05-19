@@ -3,7 +3,9 @@
 
 <nav class="navigation">
   <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
+  <% unless @pet.adoption_status == "pending" %>
   <%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
+  <% end %>
   <%= link_to "View All Applications", "/pets/#{@pet.id}/applications" %>
 </nav>
 
