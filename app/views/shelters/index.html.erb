@@ -8,7 +8,7 @@
 
   <% @shelters.each do |shelter| %>
 
-  <section class="block">
+  <section class="block" id="shelter-<%=shelter.id%>">
 
 
     <strong>Shelter Name: </strong> <strong><%= link_to shelter.name, "shelters/#{shelter.id}" %></strong>
