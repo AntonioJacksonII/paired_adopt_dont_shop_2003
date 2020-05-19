@@ -19,13 +19,13 @@ RSpec.describe "Pet Show Page", type: :feature do
       click_button("Favorite This Pet")
       visit "/favorites"
 
-      within ".favorite-#{pet.id}" do
+      within "#favorite-#{pet.id}" do
         expect(page).to have_content(pet.name)
       end
       visit "/pets/#{pet.id}"
       click_link("Delete Pet")
       visit '/favorites'
-      expect(page).not_to have_css(".favorite-#{pet.id}")
-      
+      expect(page).not_to have_css("#favorite-#{pet.id}")
+
   end
 end
