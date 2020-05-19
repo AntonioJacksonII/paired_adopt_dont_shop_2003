@@ -9,7 +9,7 @@ RSpec.describe "Shelter Index Page", type: :feature do
                              zip: 68940)
 
     visit "/shelters"
-    click_link("Delete Shelter #{shelter.id}")
+    click_link("Delete Shelter")
 
     expect(current_path).to eql("/shelters")
     expect(page).not_to have_content("Peanut Shelter")

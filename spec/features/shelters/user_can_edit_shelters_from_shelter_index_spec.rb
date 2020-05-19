@@ -9,7 +9,7 @@ RSpec.describe "Shelter Index Page", type: :feature do
                              zip: 74599)
 
     visit "/shelters"
-    click_link("Update Shelter #{shelter.id}")
+    click_link("Update Shelter")
     expect(current_path).to have_content("/shelters/#{shelter.id}/edit")
     fill_in 'name', with: "Kanine Land"
     fill_in 'address', with: "3423 Kaine Street"
