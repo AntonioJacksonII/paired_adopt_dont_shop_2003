@@ -52,7 +52,3 @@ RSpec.describe "Pet Show Page", type: :feature do
     expect(current_path).to eql("/pets/#{pet1.id}")
   end
 end
-
-
-#pet application index
-#pet show page
