@@ -19,6 +19,7 @@
       <%= check_box_tag("#{pet.id}") %>
     <% end %>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
+
     <% if pet.adoption_status == "pending" %>
       <%= link_to "Unapprove This Pet's Application", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
     <% else %>
