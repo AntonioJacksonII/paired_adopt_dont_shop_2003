@@ -1,7 +1,7 @@
 
 <% if @pet.applications.count == 0 %>
 
-<h1>There are no applications for <%= @pet.name %> yet</h1>
+<h1>There are no applications for <%=link_to @pet.name, "/pets/#{@pet.id}" %> yet</h1>
 
 <% else %>
 
