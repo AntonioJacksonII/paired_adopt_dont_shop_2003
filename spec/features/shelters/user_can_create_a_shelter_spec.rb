@@ -23,6 +23,18 @@ RSpec.describe "shelter create page", type: :feature do
     click_on 'submit'
 
     expect(page).to have_content("Please fill in address, city, state, zip")
+    fill_in :address, with: "123 Main St"
+    click_on 'submit'
+    expect(page).to have_content("Please fill in city, state, zip")
+    fill_in :city, with: "Denver"
+    click_on 'submit'
+    expect(page).to have_content("Please fill in state, zip")
+    fill_in :zip, with: "12345"
+    click_on 'submit'
+    expect(page).to have_content("Please fill in state")
+    fill_in :state, with: "CO"
+    click_on 'submit'
+    expect(current_path).to eq("/shelters")
   end
 
 end
