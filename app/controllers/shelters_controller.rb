@@ -18,8 +18,10 @@ class SheltersController < ApplicationController
     shelter = Shelter.new(shelter_params)
     unless shelter.save
       flash[:notice] = "Please fill in #{missing_params}"
+      render "/shelters/new"
+    else
+      redirect_to '/shelters'
     end
-    redirect_to '/shelters'
   end
 
 
