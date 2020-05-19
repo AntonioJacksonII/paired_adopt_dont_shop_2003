@@ -50,7 +50,6 @@ end
      end
 
      visit "/shelters"
-     save_and_open_page
      within("#shelter-#{shelter.id}") do
        expect(page).to_not have_link("Delete Shelter")
      end
@@ -60,5 +59,8 @@ end
      end
      expect(current_path).to eq("/shelters")
      expect(page).to_not have_content("Happy Shelter")
+
+     visit "/shelters/#{shelter.id}"
+     expect(page).to_not have_link("Delete Shelter")
   end
 end
