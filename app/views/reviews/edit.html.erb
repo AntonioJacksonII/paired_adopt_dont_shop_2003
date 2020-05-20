@@ -5,13 +5,13 @@
 <body class="display">
   <%= form_tag "/reviews/#{@review.id}", method: :patch do %>
   <%= label_tag :title %>
-  <%= text_field_tag :title %><br>
+  <%= text_field_tag :title, nil, value: "#{@review.title}" %><br>
   <%= label_tag :rating %>
-  <%= text_field_tag :rating %><br>
+  <%= text_field_tag :rating, nil, value: "#{@review.rating}" %><br>
   <%= label_tag :content %>
-  <%= text_field_tag :content %><br>
+  <%= text_field_tag :content, nil, value: "#{@review.content}" %><br>
   <%= label_tag :picture %>
-  <%= text_field_tag :picture  %><br>
+  <%= text_field_tag :picture, nil, value: "#{@review.picture}" %><br>
 
   <%= submit_tag 'Edit Review' %>
   <% end %>
