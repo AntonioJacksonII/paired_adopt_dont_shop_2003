@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Please select a rating between 1 and 5"
       redirect_to "/shelters/#{review.shelter.id}/reviews/#{review.id}/edit"
     elsif review.save
-      redirect_to "/shelters/#{shelter.id}"
+      redirect_to "/shelters/#{review.shelter.id}"
     else
       flash[:notice] = "Please Fill In Title, Rating, and Content"
       redirect_to "/shelters/#{review.shelter.id}/reviews/#{review.id}/edit"
