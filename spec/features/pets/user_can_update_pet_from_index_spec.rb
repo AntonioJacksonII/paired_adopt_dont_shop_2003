@@ -48,4 +48,58 @@ RSpec.describe "Pets Index Page", type: :feature do
     expect(page).to have_content(23)
     expect(page).to have_content("Male")
   end
+
+  it "can display error message when forms are not filled out completely" do
+
+    shelter = Shelter.create(name: "Curls Shelter",
+                             address: "12888 Curl Drive",
+                             city: "Curl Vale",
+                             state: "Curl Twon",
+                             zip: 73459)
+
+    pet = Pet.create({
+      image: "pet_url_1",
+      name: "Sparky",
+      approximate_age: 5,
+      sex: "Male",
+      shelter_id: shelter.id,
+      description: "Cute Puppy with black and white fur",
+      adoption_status: "Adoptable"
+      })
+
+    visit '/pets'
+    click_link("Update Pet #{pet.id}")
+
+    fill_in :image, with: ""
+    click_on "Update Pet"
+    expect(current_path).to eq("/pets/#{pet.id}/edit")
+    expect(page).to have_content("Please fill in image")
+
+    fill_in :name, with: ""
+    click_on "Update Pet"
+    expect(current_path).to eq("/pets/#{pet.id}/edit")
+    expect(page).to have_content("Please fill in name")
+
+
+    fill_in :description, with: ""
+    fill_in :name, with: ""
+    click_on "Update Pet"
+    expect(current_path).to eq("/pets/#{pet.id}/edit")
+    expect(page).to have_content("Please fill in name, description")
+
+    fill_in :approximate_age, with: ""
+    click_on "Update Pet"
+    expect(current_path).to eq("/pets/#{pet.id}/edit")
+    expect(page).to have_content("Please fill in approximate age")
+
+
+    fill_in :sex, with: ""
+    click_on 'Update Pet'
+    expect(current_path).to eq("/pets/#{pet.id}/edit")
+    expect(page).to have_content("Please fill in sex")
+
+    fill_in :sex, with: "female"
+    click_on 'Update Pet'
+    expect(current_path).to eq("/pets/#{pet.id}")
+  end
 end
