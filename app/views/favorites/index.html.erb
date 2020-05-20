@@ -23,8 +23,7 @@
 <% if applications.count > 0 %>
 <h1>Pets With Applications On Them:</h1>
 
-<% applications.each do |application| %>
-  <% application.pets.each do |pet| %>
+  <% @app_pets.each do |pet| %>
   <section class="block" id="applicationpet-<%= pet.id %>">
     <ul>
       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
@@ -32,5 +31,4 @@
   </section>
   <% end %>
 <% end %>
-<% end %>
-  </body>
+</body>
