@@ -9,9 +9,9 @@
   <%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new", class: "link" %>
 </nav>
 
-<strong>Count of Pets: <%=@shelter.count_of_pets%></strong>
-<strong>Average Shelter Review Rating: <%=@shelter.average_rating%></strong>
-<strong>Number of applications on file: <%=@shelter.number_of_applications%></strong>
+<strong>Count of Pets: <%=@shelter.count_of_pets%></strong><br>
+<strong>Average Shelter Review Rating: <%=@shelter.average_rating%></strong><br>
+<strong>Number of applications on file: <%=@shelter.number_of_applications%></strong><br>
 
 <body class="display">
   <div class="show">
@@ -25,10 +25,9 @@
 
   <strong>Shelter Zip: </strong><%= @shelter.zip %>
   <div>
-
-
+  <br>
+  <br>
     <% @shelter.reviews.each do |review| %>
-
     <section id ="review-<%=review.id%>">
     <strong>Review Title: </strong><%= review.title %><br>
 
@@ -41,7 +40,8 @@
 
     <%= link_to "Delete Review #{review.id}", "/reviews/#{review.id}", method: :delete %>
     <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit" %>
-
+    <br>
+    <br>
     </section>
     <% end %>
 

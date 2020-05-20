@@ -6,13 +6,13 @@
 
   <%= form_tag("/shelters/#{params[:shelter_id]}", method: :post) do %>
   <%= label_tag :title %>
-  <%= text_field_tag :title %>
+  <%= text_field_tag :title %><br>
   <%= label_tag :rating %>
-  <%= text_field_tag :rating %>
+  <%= text_field_tag :rating %><br>
   <%= label_tag :content %>
-  <%= text_field_tag :content %>
+  <%= text_field_tag :content %><br>
   <%= label_tag :picture %>
-  <%= text_field_tag :picture %>
+  <%= text_field_tag :picture %><br>
 
   <%= submit_tag 'Submit Review' %>
   <% end %>

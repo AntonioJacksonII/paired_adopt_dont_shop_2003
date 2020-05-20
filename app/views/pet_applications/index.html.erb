@@ -1,3 +1,4 @@
+<body class="display">
 
 <% if @pet.applications.count == 0 %>
 
@@ -7,14 +8,10 @@
 
   <h1>Applications For: <%=link_to @pet.name, "/pets/#{@pet.id}"%></h1>
 
-  <body>
-
     <% @pet.applications.each do |application| %>
       <section class = "applicant-<%= application.id %>">
       <%= link_to "#{application.name}", "/applications/#{application.id}" %>
       <section>
     <% end %>
-
-  </body>
-
   <% end %>
+</body>

@@ -1,5 +1,6 @@
 <h1>Application for: <%=@application.name %> </h1>
 
+<body class="display">
 
 <strong>Applicant's Name: <%= @application.name %></strong><br>
 <strong>Applicant's Address: <%=@application.address%></strong><br>
@@ -20,7 +21,7 @@
       <%= check_box_tag("#{pet.id}") %>
     <% end %>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
-
+    &nbsp;&nbsp;
     <% if pet.adoption_status == "pending" %>
       <%= link_to "Unapprove This Pet's Application", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
     <% else %>
@@ -32,3 +33,5 @@
   <% end %>
   <%= submit_tag 'Approve Application for All Selected Pets' %>
   <% end %>
+
+</body>

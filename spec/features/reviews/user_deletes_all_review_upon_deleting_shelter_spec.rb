@@ -19,12 +19,12 @@ RSpec.describe "Shelter Show Page", type: :feature do
 
 
     visit "/reviews"
-    within (".review-#{review1.id}") do
+    within ("#review-#{review1.id}") do
       expect(page).to have_content(review1.title)
       expect(page).to have_content(review1.rating)
       expect(page).to have_content(review1.content)
     end
-    within (".review-#{review2.id}") do
+    within ("#review-#{review2.id}") do
       expect(page).to have_content(review2.title)
       expect(page).to have_content(review2.rating)
       expect(page).to have_content(review2.content)

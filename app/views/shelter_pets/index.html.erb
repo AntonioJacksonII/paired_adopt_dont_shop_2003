@@ -32,6 +32,6 @@
     <% unless pet.adoption_status == "pending" %>
       <%= link_to "Delete Pet #{pet.id}", "/pets/#{pet.id}", method: :delete %>
     <% end %>
+  </section>
     <% end %>
-    </section>
   </body>
