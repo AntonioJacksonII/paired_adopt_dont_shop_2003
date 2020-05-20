@@ -1,17 +1,18 @@
 
-<h1>Shelter Info</h1>
+<h1>Shelter Information</h1>
 <nav class="navigation">
   <%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit", class: "link" %>
   <% if @shelter.pets.none? { |pet| pet.applications {|application| applications.status == "approved"}} %>
     <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete, class: "link" %>
   <% end %>
-  <%= link_to "View Shelters Pets", "/shelters/#{@shelter.id}/pets", class: "link" %>
+  <%= link_to "View Shelter's Pets", "/shelters/#{@shelter.id}/pets", class: "link" %>
   <%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new", class: "link" %>
 </nav>
-
+<p>
 <strong>Count of Pets: <%=@shelter.count_of_pets%></strong><br>
 <strong>Average Shelter Review Rating: <%=@shelter.average_rating%></strong><br>
 <strong>Number of applications on file: <%=@shelter.number_of_applications%></strong><br>
+</p>
 
 <body class="display">
   <div class="show">
@@ -24,9 +25,9 @@
   <strong>Shelter State: </strong><%= @shelter.state %><br>
 
   <strong>Shelter Zip: </strong><%= @shelter.zip %>
-  <div>
-  <br>
-  <br>
+  </div>
+
+  <h2>Shelter Reviews</h2>
     <% @shelter.reviews.each do |review| %>
     <section id ="review-<%=review.id%>">
     <strong>Review Title: </strong><%= review.title %><br>
