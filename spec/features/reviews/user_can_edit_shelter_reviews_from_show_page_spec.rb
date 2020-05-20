@@ -42,7 +42,7 @@ require "rails_helper"
      visit "shelters/#{shelter.id}"
      click_link('Edit Review')
      expect(current_path).to eql("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
-     fill_in :title, with: "Horrible"
+     fill_in :title, with: ""
      click_on 'Edit Review'
      expect(current_path).to eql("/shelters/#{shelter.id}/reviews/#{review.id}/edit")
      expect(page).to have_content("Please Fill In Title, Rating, and Content")
