@@ -8,12 +8,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-
     shelter = Shelter.find(params[:shelter_id])
     review = shelter.reviews.new(review_params)
-
-    if review.rating < 1 || review.rating > 5
-
+    
+    if review.rating.nil?
+      flash[:notice] = "Please enter a rating between 1 and 5"
+      redirect_to "/shelters/#{shelter.id}/reviews/new"
+    elsif review.rating < 1 || review.rating > 5
       flash[:notice] = "Please select a rating between 1 and 5"
       redirect_to "/shelters/#{shelter.id}/reviews/new"
     elsif review.save
@@ -21,9 +22,8 @@ class ReviewsController < ApplicationController
     else
       flash[:notice] = "Please Fill In Title, Rating, and Content"
       redirect_to "/shelters/#{shelter.id}/reviews/new"
-
+    end
   end
-end
 
 
 
