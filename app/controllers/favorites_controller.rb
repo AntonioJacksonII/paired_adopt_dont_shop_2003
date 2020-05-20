@@ -2,7 +2,13 @@ class FavoritesController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-
+    app_pets = []
+    applications.each do |application|
+      application.pets.each do |pet|
+        app_pets << pet
+      end
+    end
+    @app_pets = app_pets.uniq
   end
 
   def update
